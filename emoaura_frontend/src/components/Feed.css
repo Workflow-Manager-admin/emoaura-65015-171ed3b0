@@ -11,27 +11,38 @@
   overflow-y: auto;
   padding-bottom: 28px;
   box-shadow: none;
+  background: none;
 }
 
-/* Post Card */
+
+/* Post Card Neon Style */
 .serene-post-card {
-  background: var(--neutral-white, #fff);
+  background: linear-gradient(120deg,#181240 85%, #0ffccf22 120%);
   border-radius: 18px;
-  border: 1.7px solid var(--neutral-outline, #e3e5e8);
-  box-shadow: 0 2px 26px 0 rgba(140,155,180,0.10), 0 2px 5px 0 rgba(120,140,168,0.07);
+  border: 2.1px solid #8d00ffbb;
+  box-shadow: 0 0 22px 2px #0ffccfaa, 0 0 80px 4px #31106466;
   padding: 20px 24px 12px 24px;
-  color: var(--text-color, #353642);
+  color: #fff;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: box-shadow 0.24s, border 0.17s;
+  transition:
+    box-shadow 0.24s, border 0.23s,
+    background 0.36s cubic-bezier(.18,.7,.54,1.1);
   overflow: hidden;
+  animation: postGlow 7.2s linear infinite alternate;
+}
+@keyframes postGlow {
+  0% { box-shadow: 0 0 14px #8d00ffa7, 0 0 60px #0ffccf44;}
+  50% { box-shadow: 0 0 24px #0ffccfa4, 0 0 100px #e900be33; }
+  100% { box-shadow: 0 0 14px #e900be80,  0 0 60px #8d00ff33;}
 }
 
 .serene-post-card:hover,
 .serene-post-card:focus-within {
-  border: 1.7px solid var(--accent-blue, #b6d0e2);
-  box-shadow: 0 8px 29px -7px rgba(141,183,210,0.19);
+  border: 2.7px solid #ff39b5;
+  box-shadow: 0 0 28px #ff39b599, 0 0 65px 0 #0ffccfaa, 0 0 4px #8d00ff77;
+  background: linear-gradient(111deg,#21144e 70%, #0ffccf55 130%);
 }
 
 /* User bar */
@@ -47,19 +58,19 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  border: 1.7px solid var(--accent-mint, #daf3e6);
-  background: #eff6fa;
-  box-shadow: 0 0 7px 1px #e3f1ed;
+  border: 2.5px solid #0ffccfaa;
+  background: #18173a;
+  box-shadow: 0 0 11px 2px #ff39b577, 0 0 2px #0ffccfcf;
   margin-right: 5px;
   object-fit: cover;
 }
 
 .serene-post-card__username {
   font-weight: 700;
-  color: var(--accent-blue, #92adc5);
-  font-size: 1.08rem;
-  letter-spacing: 0.63px;
-  text-shadow: none;
+  color: #ff39b5;
+  font-size: 1.11rem;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 7px #0ffccfaa;
   filter: none;
 }
 
@@ -68,8 +79,8 @@
   border-radius: 11px;
   overflow: hidden;
   margin-bottom: 10px;
-  background: var(--neutral-grey, #f1f1f7);
-  box-shadow: 0 2px 14px 2px #e4e6ee;
+  background: linear-gradient(90deg, #271660 60%, #0ffccf33 100%);
+  box-shadow: 0 0 32px 4px #0ffccfaa inset;
   aspect-ratio: 4/3;
   display: flex;
   align-items: center;
@@ -83,26 +94,27 @@
   object-fit: cover;
   border-radius: 11px;
   transition: transform .21s cubic-bezier(0.67,0.03,0.36,1);
-  box-shadow: none;
+  box-shadow: 0 0 15px #ff39b588;
 }
 
 .serene-post-card__image:hover {
-  transform: scale(1.017) rotate(-0.5deg);
-  filter: brightness(1.06);
+  transform: scale(1.017) rotate(-0.7deg);
+  filter: brightness(1.09);
+  box-shadow: 0 0 24px #00fff7, 0 0 18px #8d00ff;
 }
 
 .serene-post-card__caption {
   margin-top: 7px;
-  font-size: 1.03rem;
-  color: #48485f;
+  font-size: 1.09rem;
+  color: #f1fafb;
   padding: 9px 7px 3px 5px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  border-left: 4px solid var(--accent-peach, #ffe0d2);
-  background: var(--neutral-silver, #f4f4fb);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-left: 4.5px solid #00fff7;
+  background: linear-gradient(90deg, #34165c22 70%, #0ffccf44 100%);
   border-radius: 7px;
-  text-shadow: none;
-  box-shadow: 0 0 6px #efeef5 inset;
+  text-shadow: 0 0 6px #8d00ffd1;
+  box-shadow: 0 0 7px #0ffccf70 inset;
   filter: none;
 }
 

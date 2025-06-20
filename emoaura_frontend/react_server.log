@@ -13,73 +13,73 @@ asset 9539eeffc410c41bb9b5.svg 1.16 KiB [emitted] [immutable] [from: src/assets/
 runtime modules 28.7 KiB 15 modules
 javascript modules 1.61 MiB
   modules by path ./node_modules/ 1.54 MiB 34 modules
-  modules by path ./src/ 59 KiB
-    modules by path ./src/components/ 41.1 KiB 15 modules
-    modules by path ./src/*.css 12.8 KiB 4 modules
+  modules by path ./src/ 53.9 KiB
+    modules by path ./src/components/ 38.1 KiB 15 modules
+    modules by path ./src/*.css 10.6 KiB 4 modules
     modules by path ./src/*.js 5.17 KiB 3 modules
   modules by path ./.ve/ 15.1 KiB
     modules by path ./.ve/*.js 10.6 KiB 2 modules
     modules by path ./.ve/*.css 2.93 KiB 2 modules
     ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
 ./src/assets/logo.svg 1.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
-webpack 5.99.9 compiled successfully in 1441 ms
-assets by status 3.13 KiB [cached] 2 assets
-assets by status 1.83 MiB [emitted]
-  asset bundle.js 1.82 MiB [emitted] (name: main)
-  asset main.d1f8b65b420dea1745ac.hot-update.js 7.87 KiB [emitted] [immutable] [hmr] (name: main)
-  asset main.d1f8b65b420dea1745ac.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.83 MiB (1.16 KiB) = bundle.js 1.82 MiB main.d1f8b65b420dea1745ac.hot-update.js 7.87 KiB 1 auxiliary asset
-cached modules 1.6 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
-runtime modules 28.7 KiB 15 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 5.31 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 59 ms
+webpack 5.99.9 compiled successfully in 1390 ms
 assets by status 3.13 KiB [cached] 2 assets
 assets by status 1.82 MiB [emitted]
   asset bundle.js 1.82 MiB [emitted] (name: main)
-  asset main.370a53259e650bd692ee.hot-update.js 5.47 KiB [emitted] [immutable] [hmr] (name: main)
-  asset main.370a53259e650bd692ee.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.370a53259e650bd692ee.hot-update.js 5.47 KiB 1 auxiliary asset
-cached modules 1.61 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
+  asset main.5b6f26a4d9079db3be18.hot-update.js 7.76 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.5b6f26a4d9079db3be18.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.5b6f26a4d9079db3be18.hot-update.js 7.76 KiB 1 auxiliary asset
+cached modules 1.6 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
 runtime modules 28.7 KiB 15 modules
-./node_modules/css-loader/dist/cjs.js!./src/components/Feed.css 2.94 KiB [built] [code generated]
+./node_modules/css-loader/dist/cjs.js!./src/App.css 5.21 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 119 ms
+assets by status 3.13 KiB [cached] 2 assets
+assets by status 1.82 MiB [emitted]
+  asset bundle.js 1.82 MiB [emitted] (name: main)
+  asset main.b7e6d87c95668c825b48.hot-update.js 5.96 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.b7e6d87c95668c825b48.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.b7e6d87c95668c825b48.hot-update.js 5.96 KiB 1 auxiliary asset
+cached modules 1.6 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
+runtime modules 28.7 KiB 15 modules
+./node_modules/css-loader/dist/cjs.js!./src/components/Feed.css 3.41 KiB [built] [code generated]
 webpack 5.99.9 compiled successfully in 53 ms
 assets by status 3.13 KiB [cached] 2 assets
 assets by status 1.82 MiB [emitted]
   asset bundle.js 1.82 MiB [emitted] (name: main)
-  asset main.ce5085e55c9b04ef3877.hot-update.js 4.69 KiB [emitted] [immutable] [hmr] (name: main)
-  asset main.ce5085e55c9b04ef3877.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.ce5085e55c9b04ef3877.hot-update.js 4.69 KiB 1 auxiliary asset
+  asset main.c9f942b741b2f33aae4e.hot-update.js 5.1 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.c9f942b741b2f33aae4e.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.c9f942b741b2f33aae4e.hot-update.js 5.1 KiB 1 auxiliary asset
 cached modules 1.61 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
 runtime modules 28.7 KiB 15 modules
-./node_modules/css-loader/dist/cjs.js!./src/components/NavBar.css 2.2 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 46 ms
+./node_modules/css-loader/dist/cjs.js!./src/components/NavBar.css 2.59 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 43 ms
 assets by status 3.13 KiB [cached] 2 assets
 assets by status 1.82 MiB [emitted]
   asset bundle.js 1.82 MiB [emitted] (name: main)
-  asset main.503b6ad8d35cb045de28.hot-update.js 3.58 KiB [emitted] [immutable] [hmr] (name: main)
-  asset main.503b6ad8d35cb045de28.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.503b6ad8d35cb045de28.hot-update.js 3.58 KiB 1 auxiliary asset
+  asset main.799a8792e3010811f6c8.hot-update.js 4.11 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.799a8792e3010811f6c8.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.799a8792e3010811f6c8.hot-update.js 4.11 KiB 1 auxiliary asset
 cached modules 1.61 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
 runtime modules 28.7 KiB 15 modules
-./node_modules/css-loader/dist/cjs.js!./src/components/Sidebar.css 1.12 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 39 ms
+./node_modules/css-loader/dist/cjs.js!./src/components/Sidebar.css 1.63 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 43 ms
 assets by status 3.13 KiB [cached] 2 assets
 assets by status 1.82 MiB [emitted]
   asset bundle.js 1.82 MiB [emitted] (name: main)
-  asset main.404ebf886a723b38d1c6.hot-update.js 6.18 KiB [emitted] [immutable] [hmr] (name: main)
-  asset main.404ebf886a723b38d1c6.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.404ebf886a723b38d1c6.hot-update.js 6.18 KiB 1 auxiliary asset
+  asset main.531745eeba25398aa2e4.hot-update.js 6.47 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.531745eeba25398aa2e4.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.531745eeba25398aa2e4.hot-update.js 6.47 KiB 1 auxiliary asset
 cached modules 1.6 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
 runtime modules 28.7 KiB 15 modules
-./node_modules/css-loader/dist/cjs.js!./src/components/StoryBar.css 3.61 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 50 ms
+./node_modules/css-loader/dist/cjs.js!./src/components/StoryBar.css 3.89 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 43 ms
 assets by status 3.13 KiB [cached] 2 assets
 assets by status 1.82 MiB [emitted]
   asset bundle.js 1.82 MiB [emitted] (name: main)
-  asset main.ead306ed0581044db37f.hot-update.js 4.94 KiB [emitted] [immutable] [hmr] (name: main)
-  asset main.ead306ed0581044db37f.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.ead306ed0581044db37f.hot-update.js 4.94 KiB 1 auxiliary asset
-cached modules 1.6 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
+  asset main.cf95e63202178ec00182.hot-update.js 5.79 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.cf95e63202178ec00182.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.82 MiB main.cf95e63202178ec00182.hot-update.js 5.79 KiB 1 auxiliary asset
+cached modules 1.61 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
 runtime modules 28.7 KiB 15 modules
-./node_modules/css-loader/dist/cjs.js!./src/components/StoryStrip.css 2.4 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 40 ms
+./node_modules/css-loader/dist/cjs.js!./src/components/StoryStrip.css 3.23 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 59 ms

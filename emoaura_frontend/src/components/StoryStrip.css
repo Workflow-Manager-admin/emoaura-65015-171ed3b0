@@ -4,15 +4,26 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 15px;
-  padding: 10px 8px 10px 12px;
-  margin-bottom: 11px;
-  background: var(--neutral-silver, #f6f8fa);
-  border-radius: 16px;
-  box-shadow: 0 1px 9px 0 rgba(180,180,220, 0.09);
+  gap: 18px;
+  padding: 13px 9px 13px 14px;
+  margin-bottom: 14px;
+  background: linear-gradient(
+    96deg,
+    #0ffccf0a 0%,
+    #181240 60%,
+    #8d00ff1e 100%
+  );
+  border-radius: 19px;
+  box-shadow: 0 0 15px #0ffccf66, 0 0 21px #8d00ff55 inset;
   overflow-x: auto;
   scrollbar-width: thin;
-  scrollbar-color: #d4dae8 #ecdff5;
+  scrollbar-color: #0ffccf #181240;
+  animation: stripFlux 11s ease-in-out infinite alternate;
+}
+@keyframes stripFlux {
+  0% { box-shadow: 0 0 15px #0ffccf99, 0 0 21px #8d00ff55 inset; }
+  55% { box-shadow: 0 0 25px #ff39b5cc, 0 0 33px #0ffccfaa inset; }
+  100% { box-shadow: 0 0 15px #0ffccfaa, 0 0 21px #e900be99 inset; }
 }
 
 .serene-story-strip__item {
@@ -23,64 +34,73 @@
   flex: 0 0 62px;
   cursor: pointer;
   margin: 0 1px;
-  gap: 7px;
+  gap: 8px;
+  background: none;
+  filter: drop-shadow(0 0 4px #0ffccf44);
 }
 
 .serene-story-strip__ring {
-  background: var(--accent-mint, #dbeff2);
+  background: linear-gradient(120deg,#ff39b5 0%,#0ffccf 100%);
   padding: 3px;
   border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--neutral-outline, #e4e7e9) inset;
-  transition: box-shadow .16s;
+  box-shadow: 0 0 0 5px #8d00ff33 inset, 0 0 20px #0ffccfaa;
+  transition: box-shadow .22s;
+  animation: storyRingGlow 4.5s ease-in-out infinite alternate;
+}
+@keyframes storyRingGlow {
+  0% { box-shadow: 0 0 0 5px #8d00ff33 inset, 0 0 18px #ff39b566; }
+  60% { box-shadow: 0 0 0 7px #00fff744 inset, 0 0 45px #0ffccfaa; }
+  100% { box-shadow: 0 0 0 4px #8d00ff66 inset, 0 0 13px #e900be99; }
 }
 
 .serene-story-strip__item:hover .serene-story-strip__ring {
-  box-shadow: 0 0 4px 3px #e7deeb inset, 0 1px 11px -6px #b8e2ee;
-  background: var(--accent-peach, #ffe7df);
+  box-shadow: 0 0 16px 5px #ff39b580, 0 0 30px #0ffccf;
+  background: linear-gradient(110deg,#e900be 0%,#0ffccf 40%,#ffe500 100%);
 }
 
 .serene-story-strip__avatar {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1.5px solid #ebe8f1;
+  border: 2px solid #0ffccf;
   object-fit: cover;
-  background: #fff;
+  background: #1f102f;
   display: block;
+  box-shadow: 0 0 7px #ff39b5aa, 0 0 13px #0ffccf99 inset;
 }
 
 .serene-story-strip__user {
-  color: var(--accent-blue, #a8b5c4);
-  font-size: 0.95rem;
-  font-weight: 600;
+  color: #ff39b5;
+  font-size: 1.05rem;
+  font-weight: 800;
   margin-top: 2px;
   text-align: center;
-  text-shadow: none;
-  filter: none;
+  text-shadow: 0 0 6px #8d00ffcc, 0 0 4px #00fff7aa;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  letter-spacing: 1.4px;
 }
 
-/* Customized scrollbar for a soft theme */
+/* Neon scrollbar */
 .serene-story-strip::-webkit-scrollbar {
   height: 8px;
 }
 .serene-story-strip::-webkit-scrollbar-thumb {
-  background: #e3e8ef;
+  background: linear-gradient(90deg,#0ffccf 0%,#8d00ff 100%);
   border-radius: 7px;
 }
 .serene-story-strip::-webkit-scrollbar-track {
-  background: #f3f3fa;
+  background: #181240;
 }
 
 /* Responsive: story avatars slightly smaller on mobile */
 @media (max-width: 700px) {
   .serene-story-strip {
-    gap: 10px;
+    gap: 11px;
     padding: 7px 2vw 7px 2vw;
-    margin-bottom: 9px;
+    margin-bottom: 8px;
   }
   .serene-story-strip__item {
     width: 42px;
