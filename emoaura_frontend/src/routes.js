@@ -1,13 +1,11 @@
 import React from "react";
-
-/** Placeholder components for top-level routes. */
-
-/*
-  All primary route placeholders for Sérene.
-  These placeholder components show the new Sérene name and class.
-*/
-
 import Feed from "./components/Feed";
+import Explore from "./components/Explore";
+
+/**
+ * All primary route placeholders for Sérene.
+ * These placeholder components show the new Sérene name and class.
+ */
 
 // PUBLIC_INTERFACE
 export function FeedPage() {
@@ -17,8 +15,10 @@ export function FeedPage() {
 
 // PUBLIC_INTERFACE
 export function ExplorePage() {
-  /** Placeholder for Explore route. */
-  return <div className="serene-feed__placeholder">Sérene Explore Area</div>;
+  /**
+   * Explore route: renders the performant, responsive, and visually appealing masonry/grid layout.
+   */
+  return <Explore />;
 }
 
 // PUBLIC_INTERFACE
