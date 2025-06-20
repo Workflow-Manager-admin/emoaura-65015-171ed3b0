@@ -1,0 +1,213 @@
+:root {
+  /* EmoAura Brand Colors */
+  --emoaura-primary: #a83e3e;
+  --emoaura-secondary: #000000;
+  --emoaura-accent: #000000;
+
+  /* UI variables */
+  --text-color: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(255, 255, 255, 0.06);
+  --navbar-height: 60px;
+  --sidebar-width: 240px;
+  --storybar-width: 120px;
+  --bg-main: #191414;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-color);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------ EmoAura App Container ------ */
+.emoaura-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-main);
+}
+
+/* ------ Top Navigation Bar ------ */
+.emoaura-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--navbar-height);
+  box-sizing: border-box;
+  padding: 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--emoaura-primary);
+  color: #fff;
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+}
+
+.emoaura-navbar__logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  gap: 10px;
+}
+.emoaura-navbar__logo-symbol {
+  font-size: 2rem;
+  color: var(--emoaura-accent);
+}
+.emoaura-navbar__brand {
+  letter-spacing: 1px;
+}
+.emoaura-navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.emoaura-navbar__action-btn {
+  background: var(--emoaura-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.18s;
+}
+.emoaura-navbar__action-btn:hover {
+  opacity: 0.85;
+}
+
+/* ------ Main Layout ------ */
+.emoaura-main-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: var(--navbar-height);
+  min-height: calc(100vh - var(--navbar-height));
+  width: 100%;
+}
+
+.emoaura-storybar {
+  width: var(--storybar-width);
+  min-width: 94px;
+  background: var(--emoaura-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 18px;
+}
+.emoaura-storybar__placeholder {
+  background: rgba(255,255,255,0.02);
+  color: var(--text-secondary);
+  border-radius: 10px;
+  padding: 22px 10px;
+  width: 90px;
+  text-align: center;
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+
+/* Feed Area */
+.emoaura-feed {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 12px 0 12px;
+  min-width: 0;
+}
+.emoaura-feed__placeholder {
+  width: 100%;
+  max-width: 540px;
+  background: rgba(255,255,255,0.03);
+  padding: 38px 0;
+  border-radius: 20px;
+  color: var(--text-color);
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: 1.5px dashed var(--emoaura-primary);
+}
+
+/* Sidebar / Profile */
+.emoaura-sidebar {
+  width: var(--sidebar-width);
+  min-width: 180px;
+  padding: 32px 8px;
+  background: var(--emoaura-secondary);
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.emoaura-sidebar__placeholder {
+  color: var(--emoaura-primary);
+  border: 1.5px dashed var(--emoaura-primary);
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* ------ Modal Overlay Placeholder ------ */
+.emoaura-modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  z-index: 300;
+  background: rgba(0,0,0,0.49);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+}
+
+/* ------ Responsive Design ------ */
+@media (max-width: 900px) {
+  .emoaura-sidebar {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .emoaura-main-container {
+    flex-direction: column;
+  }
+  .emoaura-storybar {
+    flex-direction: row;
+    width: 100%;
+    min-width: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 4px 12px 4px;
+  }
+  .emoaura-feed {
+    padding-top: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .emoaura-navbar {
+    padding: 0 12px;
+    font-size: 1.1rem;
+  }
+  .emoaura-sidebar {
+    display: none;
+  }
+  .emoaura-storybar__placeholder, .emoaura-sidebar__placeholder {
+    font-size: 0.95rem;
+    padding: 14px 4px;
+  }
+  .emoaura-feed__placeholder {
+    padding: 18px 0;
+    font-size: 1.08rem;
+  }
+}
