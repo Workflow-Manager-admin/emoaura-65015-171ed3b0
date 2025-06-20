@@ -11,7 +11,12 @@
   padding: 23px 0 0 0;
   box-shadow: 0 0 22px #5d69ff19;
   z-index: 30;
+  transition: background var(--transition-main), box-shadow var(--transition-main);
+  /* subtle glass effect */
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
 }
+
 .serene-storybar__title {
   font-size: 1.01rem;
   letter-spacing: 1.3px;
@@ -34,20 +39,36 @@
   width: 100%;
   text-align: left;
   text-decoration: none;
-  transition: background .17s, color .14s, box-shadow .22s;
+  transition: background .17s, color .14s, box-shadow .22s, filter .16s;
   letter-spacing: 0.8px;
+  outline: none;
+  position: relative;
+  box-shadow: none;
+}
+
+.serene-nav-link:focus {
+  outline: 2px solid #f9ce34;
+  outline-offset: 3px;
 }
 
 .serene-nav-link.active,
 .serene-nav-link:focus,
 .serene-nav-link:hover {
-  background: linear-gradient(90deg,#b491f610 80%, #5EE2FF11 100%);
+  background: linear-gradient(90deg,
+    #f9ce34cc 2%, #ee2a7bcc 46%, #6228d7bb 92%, #5EE2FF22 100%);
   color: #5EE2FF;
   font-weight: 700;
-  box-shadow: 0 0 0 1.4px var(--serene-accent);
+  box-shadow: 0 0 0 1.6px var(--serene-accent), 0 2px 22px #5EE2FF33;
+  filter: brightness(1.09) saturate(1.15);
+}
+.serene-nav-link.active {
+  border-left: 4px solid var(--serene-accent);
 }
 
-/* Responsive tweak */
+.serene-nav-link:active {
+  filter: brightness(1.00) saturate(1.2);
+}
+
 @media (max-width: 700px) {
   .serene-storybar {
     flex-direction: row;
@@ -61,6 +82,9 @@
     box-shadow: none;
     z-index: 85;
   }
+  .serene-storybar__title {
+    display: none;
+  }
   .serene-nav-link {
     border-radius: 20px;
     padding: 8px 10px 8px 12px;
@@ -68,5 +92,6 @@
     min-width: 70px;
     text-align: center;
     font-size: 1.04rem;
+    outline: none;
   }
 }

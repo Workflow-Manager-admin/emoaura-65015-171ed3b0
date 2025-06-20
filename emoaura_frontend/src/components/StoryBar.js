@@ -8,46 +8,37 @@ import "./StoryBar.css";
  */
 // PUBLIC_INTERFACE
 function StoryBar() {
+  /**
+   * Renders the main vertical nav menu for the Sérene app.
+   * Uses Instagram-inspired gradients and hover effects.
+   */
+  const menu = [
+    { label: "Feed", to: "/" },
+    { label: "Explore Hash", to: "/explore" },
+    { label: "Message", to: "/messaging" },
+    { label: "Profile", to: "/profile" },
+    { label: "Post", to: "/post" },
+    { label: "Journals", to: "/journals" },
+    { label: "TuneMyMood", to: "/tune" },
+  ];
+
   return (
     <nav className="serene-storybar" aria-label="Main navigation">
       <div className="serene-storybar__title" style={{marginBottom: 9, marginLeft: 8, opacity:0.82}}>
         Menu
       </div>
-      <NavLink to="/" end className={({ isActive }) =>
-        "serene-nav-link" + (isActive ? " active" : "")
-      }>
-        Feed
-      </NavLink>
-      <NavLink to="/explore" className={({ isActive }) =>
-        "serene-nav-link" + (isActive ? " active" : "")
-      }>
-        Explore Hash
-      </NavLink>
-      <NavLink to="/messaging" className={({ isActive }) =>
-        "serene-nav-link" + (isActive ? " active" : "")
-      }>
-        Message
-      </NavLink>
-      <NavLink to="/profile" className={({ isActive }) =>
-        "serene-nav-link" + (isActive ? " active" : "")
-      }>
-        Profile
-      </NavLink>
-      <NavLink to="/post" className={({ isActive }) =>
-        "serene-nav-link" + (isActive ? " active" : "")
-      }>
-        Post
-      </NavLink>
-      <NavLink to="/journals" className={({ isActive }) =>
-        "serene-nav-link" + (isActive ? " active" : "")
-      }>
-        Journals
-      </NavLink>
-      <NavLink to="/tune" className={({ isActive }) =>
-        "serene-nav-link" + (isActive ? " active" : "")
-      }>
-        TuneMyMood
-      </NavLink>
+      {menu.map(({ label, to }) => (
+        <NavLink
+          key={to}
+          to={to}
+          end={to === "/"}
+          className={({ isActive }) =>
+            "serene-nav-link" + (isActive ? " active" : "")
+          }
+        >
+          {label}
+        </NavLink>
+      ))}
     </nav>
   );
 }
