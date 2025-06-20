@@ -1,0 +1,136 @@
+:root {}
+
+.serene-feed-list {
+  width: 100%;
+  max-width: 510px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 38px;
+  margin: 0 auto;
+  overflow-y: auto;
+  padding-bottom: 28px;
+  /* Cyberpunk neon highlight around feed area */
+  box-shadow:
+    0 0 38px 2px #00fff733,
+    0 0 11px #ff0bf34a inset;
+}
+
+/* Post Card */
+.serene-post-card {
+  background: linear-gradient(
+    120deg,
+    #13072e 70%,
+    #181240 93%,
+    #2e0066 100%
+  );
+  border-radius: 25px;
+  border: 2.7px solid #00fff7bb;
+  box-shadow:
+    0 0 41px 0 #00fff7b6,
+    0 3px 60px #ff0bf322,
+    0 1.3px 18px #8d00ff55 inset;
+  padding: 22px 22px 13px 22px;
+  color: #ebf6ff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.25s, border 0.18s;
+  overflow: hidden;
+}
+
+.serene-post-card:hover,
+.serene-post-card:focus-within {
+  border: 3.4px solid #ff0bf3cc;
+  box-shadow:
+    0 0 63px 7px #00fff7bb,
+    0 6px 72px #ff0bf366;
+}
+
+/* User bar */
+.serene-post-card__user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 14px;
+}
+
+.serene-post-card__avatar {
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
+  border: 2px solid #ff0bf394;
+  background: #120022;
+  box-shadow:
+    0 0 14px #00fff7dd,
+    0 0 7px #8d00ff77;
+  margin-right: 5px;
+  object-fit: cover;
+}
+
+.serene-post-card__username {
+  font-weight: 700;
+  color: #00fff7;
+  font-size: 1.08rem;
+  letter-spacing: 0.63px;
+  text-shadow: 0 0 13px #00fff769, 0 2px 6px #ff0bf341;
+  filter: brightness(1.19);
+}
+
+.serene-post-card__image-container {
+  width: 100%;
+  border-radius: 11px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: linear-gradient(120deg,#0c0032 60%,#003cff 100%);
+  box-shadow:
+    0 1px 41px #00fff73c,
+    0 2px 8px #8d00ff22;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serene-post-card__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 11px;
+  transition: transform .21s cubic-bezier(0.67,0.03,0.36,1);
+}
+
+.serene-post-card__image:hover {
+  transform: scale(1.025) rotate(-1.11deg);
+  filter: saturate(1.25) brightness(1.14) drop-shadow(0 0 14px #ff0bf3cc);
+}
+
+.serene-post-card__caption {
+  margin-top: 7px;
+  font-size: 1.05rem;
+  color: #fff7fc;
+  padding: 10px 7px 3px 5px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  border-left: 4px solid #00fff7cc;
+  background: linear-gradient(90deg, #120c2f70 80%, #ff0bf311 100%);
+  border-radius: 8px;
+  text-shadow: 0 1px 10px #ff0bf357, 0 1.8px 7px #00fff725;
+  box-shadow: 0 0 21px #00fff733 inset, 0 0 11px #ff0bf336;
+  filter: brightness(1.09);
+}
+
+/* Responsive behaviour */
+@media (max-width: 700px) {
+  .serene-feed-list {
+    max-width: 99vw;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 21px;
+  }
+  .serene-post-card {
+    padding: 15px 4vw 11px 4vw;
+  }
+}

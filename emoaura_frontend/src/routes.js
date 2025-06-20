@@ -7,10 +7,12 @@ import React from "react";
   These placeholder components show the new Sérene name and class.
 */
 
+import Feed from "./components/Feed";
+
 // PUBLIC_INTERFACE
 export function FeedPage() {
-  /** Placeholder for Feed route. */
-  return <div className="serene-feed__placeholder">Sérene Feed Area</div>;
+  /** Scrollable Feed route for Sérene app: cyberpunk neon post cards. */
+  return <Feed />;
 }
 
 // PUBLIC_INTERFACE
