@@ -1,49 +1,64 @@
 import React from "react";
 import "./Feed.css";
 
-// Placeholder post data for sample feed
-const FAKE_POSTS = [
-  {
-    id: 1,
-    username: "NeonBlade",
-    avatar: "https://api.dicebear.com/7.x/pixel-art/svg?seed=blade1",
-    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=570&q=80",
-    caption: "Midnight vibes in the city of light. #cyberpunk #nightlife",
-  },
-  {
-    id: 2,
-    username: "PixelAura",
-    avatar: "https://api.dicebear.com/7.x/pixel-art/svg?seed=pixie",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=570&q=80",
-    caption: "Dreaming in colors they haven't invented yet.",
-  },
-  {
-    id: 3,
-    username: "ZenZero",
-    avatar: "https://api.dicebear.com/7.x/pixel-art/svg?seed=zenzero",
-    image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=570&q=80",
-    caption: "Lost in the neon fog, found in the soft hum of midnight.",
-  },
-  {
-    id: 4,
-    username: "DreamSynth",
-    avatar: "https://api.dicebear.com/7.x/pixel-art/svg?seed=synthix",
-    image: "https://images.unsplash.com/photo-1468070454955-c5b6932bd08d?auto=format&fit=crop&w=570&q=80",
-    caption: "Synth tunes echoing through neon alleys.",
-  },
-  {
-    id: 5,
-    username: "BluePulse",
-    avatar: "https://api.dicebear.com/7.x/pixel-art/svg?seed=pulseblue",
-    image: "https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=570&q=80",
-    caption: "Cyber serenity at dawn. #vaporwave",
-  }
+// Util functions for random content
+const AVATAR_API = "https://api.dicebear.com/7.x/pixel-art/svg?seed=";
+const randomSeed = () => Math.random().toString(36).substring(2, 11);
+const randomUser = () => {
+  const names = [
+    "NeonBlade", "PixelAura", "ZenZero", "DreamSynth", "BluePulse", "LightWisp",
+    "GlowMuse", "AuraSpark", "LumeWave", "NovaGem", "SynthEcho", "DreamFlux", "PulseFrost"
+  ];
+  // Choose a random name and return with a random avatar seed
+  const name = names[Math.floor(Math.random() * names.length)];
+  return {
+    username: name,
+    avatar: `${AVATAR_API}${name}${randomSeed()}`
+  };
+};
+// Some prompt sentences for random captions
+const CAPTIONS = [
+  "Midnight vibes in the city of light. #cyberpunk #nightlife",
+  "Dreaming in colors they haven't invented yet.",
+  "Lost in the neon fog, found in the soft hum of midnight.",
+  "Synth tunes echoing through neon alleys.",
+  "Cyber serenity at dawn. #vaporwave",
+  "Infinite haze, infinite dreams.",
+  "Wired hearts beating to electric sunsets.",
+  "Urban warmth in a digital world.",
+  "Soft neon, sharp edges, bright souls.",
+  "No sleep in the world of neon hearts.",
+  "City lights and pixelated emotions.",
+  "Radiant silence: only music, only color.",
+  "Scrolling through the aura of tomorrow.",
+  "Between glitches, we glow even brighter."
 ];
+const randomCaption = () => CAPTIONS[Math.floor(Math.random() * CAPTIONS.length)];
+const randomImage = () => {
+  // Random landscape from picsum with varied seed
+  const w = 480 + Math.floor(Math.random() * 130);
+  const h = 360 + Math.floor(Math.random() * 60);
+  const seed = Math.floor(Math.random() * 10000);
+  return `https://picsum.photos/seed/${seed}/${w}/${h}`;
+};
+
+// Used for generating the feed posts with randomized content
+const NUM_POSTS = 8;
+const FAKE_POSTS = Array.from({ length: NUM_POSTS }).map((_, i) => {
+  const user = randomUser();
+  return {
+    id: i + 1,
+    username: user.username,
+    avatar: user.avatar,
+    image: randomImage(),
+    caption: randomCaption()
+  };
+});
 
 // PUBLIC_INTERFACE
 function Feed() {
   /**
-   * Renders a neon-styled scrollable feed with multiple post cards.
+   * Renders a neon-styled scrollable feed with random sample post cards.
    */
   return (
     <section className="serene-feed-list" aria-label="Sample feed">
