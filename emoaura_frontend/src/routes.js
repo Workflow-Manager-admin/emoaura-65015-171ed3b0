@@ -1,6 +1,7 @@
 import React from "react";
 import Feed from "./components/Feed";
 import Explore from "./components/Explore";
+import MessagesDMPage from "./components/MessagesDMPage";
 
 /**
  * All primary route placeholders for Sérene.
@@ -33,8 +34,9 @@ export function AdminPage() {
   return <div className="serene-feed__placeholder">Sérene Admin Dashboard</div>;
 }
 
+ 
 // PUBLIC_INTERFACE
 export function MessagingPage() {
-  /** Placeholder for Messaging route. */
-  return <div className="serene-feed__placeholder">Sérene Messaging Area</div>;
+  /** Messages/DM page with interactive cozy 3-panel chat layout. */
+  return <MessagesDMPage />;
 }
