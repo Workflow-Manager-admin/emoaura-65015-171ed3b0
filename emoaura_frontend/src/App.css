@@ -34,7 +34,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Times New Roman', Times, serif !important;
   min-height: 100vh;
   background: var(--bg-gradient);
   background-size: 300% 300%;
@@ -73,7 +73,7 @@ body {
   flex-direction: row;
   margin-top: var(--navbar-height);
   min-height: calc(100vh - var(--navbar-height));
-  width: 100%;
+  width: 100vw;
   background: rgba(11,0,28,0.8);
   border-top: 2.3px solid var(--neon-blue);
   border-bottom: 2.3px solid var(--neon-purple);
@@ -81,6 +81,8 @@ body {
   z-index: 2;
   background-blend-mode: overlay;
   animation: containerGlow 9s linear infinite alternate;
+  position: relative;
+  overflow: hidden;
 }
 @keyframes containerGlow {
   0% {box-shadow: 0 0 80px #0ffccf70;}
@@ -90,9 +92,33 @@ body {
   100% {box-shadow: 0 0 80px #18124099;}
 }
 
+/* Fixed left storybar */
+.serene-storybar {
+  position: fixed !important;
+  top: var(--navbar-height);
+  left: 0;
+  height: calc(100vh - var(--navbar-height));
+  z-index: 40;
+  min-height: 0;
+  /* width, bg, etc. remain in StoryBar.css */
+}
+/* Fixed right sidebar */
+.serene-sidebar {
+  position: fixed !important;
+  top: var(--navbar-height);
+  right: 0;
+  height: calc(100vh - var(--navbar-height));
+  z-index: 35;
+  min-height: 0;
+  /* width, bg, etc. remain in Sidebar.css */
+}
+
 /* Center column with stories strip + feed */
 .serene-center-col {
   flex: 1 1 0;
+  /* Compensate for fixed left/right bars */
+  margin-left: var(--storybar-width);
+  margin-right: var(--sidebar-width);
   min-width: 0;
   min-height: 0;
   display: flex;
@@ -106,6 +132,23 @@ body {
   border: 2px solid #31106433;
   overflow: visible;
   transition: background 0.33s, box-shadow 0.33s;
+}
+
+.serene-scrollable-content {
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00fff7 #181240;
+}
+.serene-scrollable-content::-webkit-scrollbar {
+  width: 9px;
+}
+.serene-scrollable-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, #8d00ff 20%, #0ffccf 100%);
+  border-radius: 8px;
+}
+.serene-scrollable-content::-webkit-scrollbar-track {
+  background: #181240;
 }
 
 /* Neon placeholder and modal background */
@@ -144,16 +187,23 @@ body {
   filter: saturate(140%);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1100px) {
   .serene-center-col {
-    padding: 12px 0 0 0;
-    border-radius: 12px;
-    box-shadow: 0 0 22px #8d00ff80;
+    margin-left: 78px;
+    margin-right: 0;
+  }
+  .serene-sidebar {
+    display: none !important;
   }
 }
-
 @media (max-width: 900px) {
-  .serene-sidebar { display: none; }
+  .serene-sidebar {
+    display: none !important;
+  }
+  .serene-center-col {
+    margin-left: 78px;
+    margin-right: 0 !important;
+  }
 }
 @media (max-width: 700px) {
   .serene-main-container {
@@ -161,13 +211,50 @@ body {
     background: #0a0b1932;
   }
   .serene-storybar {
-    flex-direction: row;
+    position: static !important;
     width: 100vw;
     min-width: 0;
     border-right: none;
     border-bottom: 2px solid var(--neon-blue);
     justify-content: flex-start;
     align-items: center;
+  }
+  .serene-center-col {
+    margin: 0 !important;
+    padding: 12px 0 0 0;
+    border-radius: 12px;
+    box-shadow: 0 0 22px #8d00ff80;
+    height: auto;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .serene-sidebar { display: none; }
+  .serene-center-col { margin-right: 0 !important; }
+  .serene-storybar { min-width: 66px !important; width: 78px !important; }
+}
+@media (max-width: 700px) {
+  .serene-main-container {
+    flex-direction: column;
+    background: #0a0b1932;
+  }
+  .serene-storybar {
+    position: static !important;
+    flex-direction: row;
+    width: 100vw !important;
+    min-width: 0 !important;
+    border-right: none;
+    border-bottom: 2px solid var(--neon-blue);
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .serene-center-col {
+    margin: 0 !important;
+    border-radius: 12px;
+    box-shadow: 0 0 22px #8d00ff80;
+    height: auto;
+    min-height: 0;
   }
   .serene-feed {
     padding-top: 14px;

@@ -29,7 +29,7 @@ function App() {
           <StoryBar />
 
           {/* Central Column: stories strip + scrollable feed */}
-          <div className="serene-center-col">
+          <div className="serene-center-col serene-scrollable-content">
             {/* Horizontal stories strip under header */}
             <StoryStrip />
             {/* Main Feed Scrollable */}
