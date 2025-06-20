@@ -12,9 +12,10 @@ function StoryBar() {
    * Renders the main vertical nav menu for the Sérene app.
    * Uses Instagram-inspired gradients and hover effects.
    */
+  // Sidebar nav menu: Feed, Explore, Message, Profile, Post, Journals, TuneMyMood
   const menu = [
     { label: "Feed", to: "/" },
-    { label: "Explore Hash", to: "/explore" },
+    { label: "Explore", to: "/explore" },
     { label: "Message", to: "/messaging" },
     { label: "Profile", to: "/profile" },
     { label: "Post", to: "/post" },
