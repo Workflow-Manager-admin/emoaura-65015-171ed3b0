@@ -1,19 +1,29 @@
 :root {
-  /* Sérene Modern Brand Gradient */
+  /* Sérene Instagram-like Dynamic Gradient Scheme */
   --serene-primary: #5EE2FF;
   --serene-secondary: #B491F6;
   --serene-accent: #5D69FF;
+  --serene-ig-1: #f9ce34;
+  --serene-ig-2: #ee2a7b;
+  --serene-ig-3: #6228d7;
+  --serene-ig-4: #5EE2FF; /* Light cyan/blue pop */
+  --serene-ig-5: #F3EAFF;
+  --serene-ig-6: #B491F6;
+  --serene-ig-dark: #252139;
+  --serene-ig-glow: 0 2px 22px 0 #5EE2FF33;
 
   /* UI variables */
   --text-color: #fff;
   --text-secondary: rgba(255,255,255,0.78);
   --bg-main: linear-gradient(
-      115deg,
-      #5EE2FF 0%,
-      #B491F6 35%,
-      #F3EAFF 68%,
-      #5D69FF 100%
-    );
+    125deg,
+    #f9ce34 4%,
+    #ee2a7b 25%,
+    #6228d7 53%,
+    #5d69ff 71%,
+    #5EE2FF 85%,
+    #B491F6 97%
+  );
   --border-color: rgba(255,255,255,0.11);
   --hover: rgba(130, 205, 251, 0.14);
   --navbar-height: 60px;
@@ -31,10 +41,24 @@ body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   min-height: 100vh;
-  background: var(--bg-main) fixed;
+  background: var(--bg-main) fixed !important;
   color: var(--text-color);
+  animation: gradientMove 56s ease infinite alternate;
+  background-size: 180% 180%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
 }
 
 /* ------ Sérene App Container ------ */
@@ -42,7 +66,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--bg-main);
+  background: transparent;
 }
 
 /* ------ Top Navigation Bar ------ */

@@ -10,34 +10,52 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background: linear-gradient(87deg, #5EE2FF 0%, #B491F6 39%, #5D69FF 99%);
+  background: linear-gradient(115deg, #ee2a7b 2%, #f9ce34 24%, #5EE2FF 55%, #B491F6 89%, #5D69FF 100%);
   color: var(--text-color);
   border-bottom: 1.5px solid var(--border-color);
   z-index: 100;
   transition: background var(--transition-main), box-shadow var(--transition-main);
-  box-shadow: 0 3px 24px #7979ff32;
+  box-shadow: 0 3px 24px #7979ff32, 0 0px 23px #ee2a7b42;
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
 }
 
 .serene-navbar__logo {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 15px;
 }
 
 .serene-navbar__logo-symbol {
-  width: 36px;
-  height: 36px;
-  filter: drop-shadow(0 0 6px #97f6f9a0);
+  width: 37px;
+  height: 37px;
+  filter: drop-shadow(0 0 8px #ee2a7ba0) drop-shadow(0 0 9px #97f6f970);
   background: none;
   border-radius: 50%;
+  border: 1.8px solid #f9ce346b;
 }
 
 .serene-navbar__brand {
-  font-size: 1.55rem;
-  letter-spacing: 1.7px;
+  font-size: 1.62rem;
+  letter-spacing: 2.1px;
   color: #fff;
   font-weight: bold;
-  text-shadow: 0 2px 12px #4d83ef93, 0 1px 3px #00dfff44;
+  font-family: 'Inter', 'Arial', sans-serif;
+  text-shadow: 0 2px 12px #ee2a7b48, 0 1px 3px #00dfff44, 0 6px 18px #6228d774;
+  padding-left: 4px;
+}
+
+/* Add drop/glow on hover for the logo area */
+.serene-navbar__logo:hover .serene-navbar__logo-symbol {
+  box-shadow: 0 0 16px 4px #ee2a7ba1, 0 0 10px #5EE2FF66 inset;
+  transition: box-shadow 0.17s;
+}
+
+/* Make the brand name stand out more on hover */
+.serene-navbar__brand:hover {
+  color: #f9ce34;
+  text-shadow: 0 2px 12px #ee2a7b93, 0 1px 4px #00dfff44;
+  transition: color .17s, text-shadow .21s;
 }
 
 @media (max-width: 700px) {
@@ -45,6 +63,7 @@
     padding: 0 12px;
     font-size: 1.10rem;
     min-height: 54px;
+    box-shadow: 0 2px 10px #7979ff1a, 0 0px 11px #ee2a7b14;
   }
   .serene-navbar__logo {
     font-size: 1.02rem;
