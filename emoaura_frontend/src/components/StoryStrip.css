@@ -1,0 +1,96 @@
+:root {}
+
+.serene-story-strip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+  padding: 13px 8px 13px 12px;
+  margin-bottom: 13px;
+  background: rgba(27,12,41, 0.82);
+  border-radius: 19px;
+  box-shadow:
+    0 0 14px 1px #00fff77c,
+    0 1px 18px #ff0bf347 inset;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8d00ff #14002a;
+}
+
+.serene-story-strip__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 68px;
+  flex: 0 0 68px;
+  cursor: pointer;
+  margin: 0 3px;
+  gap: 7px;
+}
+
+.serene-story-strip__ring {
+  background: linear-gradient(120deg,#ff0bf3 15%,#00fff7 85%);
+  padding: 2.8px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ff0bf3cc, 0 0 14px #00fff7ee inset;
+  transition: box-shadow .19s;
+}
+.serene-story-strip__item:hover .serene-story-strip__ring {
+  box-shadow: 0 0 27px #00fff7cc, 0 0 18px #ff0bf388, 0 0 11px #8d00ff;
+}
+
+.serene-story-strip__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2.6px solid #120022;
+  object-fit: cover;
+  background: #fff;
+  display: block;
+}
+
+.serene-story-strip__user {
+  color: #00fff7cc;
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin-top: 2px;
+  text-align: center;
+  text-shadow: 0 0 6px #00fff7, 0 1.2px 6px #ff0bf341;
+  filter: brightness(1.17);
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+.serene-story-strip::-webkit-scrollbar {
+  height: 8px;
+}
+.serene-story-strip::-webkit-scrollbar-thumb {
+  background: #8d00ffcc;
+  border-radius: 7px;
+}
+.serene-story-strip::-webkit-scrollbar-track {
+  background: #14002a;
+}
+
+/* Responsive: story avatars slightly smaller on mobile */
+@media (max-width: 700px) {
+  .serene-story-strip {
+    gap: 12px;
+    padding: 8px 2.5vw 8px 2vw;
+    margin-bottom: 9px;
+  }
+  .serene-story-strip__item {
+    width: 51px;
+    flex: 0 0 51px;
+  }
+  .serene-story-strip__avatar {
+    width: 39px;
+    height: 39px;
+  }
+  .serene-story-strip__user {
+    font-size: 0.82rem;
+  }
+}

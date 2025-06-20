@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import StoryBar from './components/StoryBar';
 import Sidebar from './components/Sidebar';
+import StoryStrip from './components/StoryStrip';
 
 // React Router imports
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -19,36 +20,40 @@ function App() {
   return (
     <Router>
       <div className="serene-app">
-        {/* Navigation Bar - now minimal, logo/appname only */}
+        {/* Top Header */}
         <NavBar />
 
-        {/* Main Content Layout */}
+        {/* Layout: grid (left-fixed, center, right-fixed) */}
         <div className="serene-main-container">
-          {/* Vertical Side Menu */}
+          {/* Left vertical nav */}
           <StoryBar />
 
-          {/* Routed Feed/Main Area */}
-          <main className="serene-feed">
-            <Routes>
-              <Route path="/" element={<FeedPage />} />
-              <Route path="/explore" element={<ExplorePage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="/messaging" element={<MessagingPage />} />
-              {/* Optionally add: Journals, Post, TuneMyMood, if implemented */}
-              {/* <Route path="/journals" element={<JournalsPage />} /> */}
-              {/* <Route path="/post" element={<PostPage />} /> */}
-              {/* <Route path="/tune" element={<TuneMyMoodPage />} /> */}
-            </Routes>
-          </main>
+          {/* Central Column: stories strip + scrollable feed */}
+          <div className="serene-center-col">
+            {/* Horizontal stories strip under header */}
+            <StoryStrip />
+            {/* Main Feed Scrollable */}
+            <main className="serene-feed">
+              <Routes>
+                <Route path="/" element={<FeedPage />} />
+                <Route path="/explore" element={<ExplorePage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/messaging" element={<MessagingPage />} />
+                {/* Optionally add: Journals, Post, TuneMyMood, if implemented */}
+                {/* <Route path="/journals" element={<JournalsPage />} /> */}
+                {/* <Route path="/post" element={<PostPage />} /> */}
+                {/* <Route path="/tune" element={<TuneMyMoodPage />} /> */}
+              </Routes>
+            </main>
+          </div>
 
-          {/* Sidebar/Profile */}
+          {/* Right sidebar */}
           <Sidebar />
         </div>
 
-        {/* Modal Overlays */}
+        {/* Modals */}
         <div className="serene-modal-overlay" style={{ display: "none" }}>
-          {/* Placeholder for overlays: will be used for popups/modal dialogs */}
           Modal Overlay Placeholder
         </div>
       </div>
