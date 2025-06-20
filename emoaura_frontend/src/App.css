@@ -1,47 +1,46 @@
 :root {
-  /* Sérene Cyberpunk Neon Vibrant Scheme */
-  --cyberpunk-neon-1: #00fff7;
-  --cyberpunk-neon-2: #8d00ff;
-  --cyberpunk-neon-3: #ff0bf3;
-  --cyberpunk-neon-4: #003cff;
-  --cyberpunk-neon-5: #07d9ff;
-  --cyberpunk-neon-6: #ff008c;
-  --cyberpunk-purple: #57009d;
-  --cyberpunk-bg-dark: #120022;
-  --cyberpunk-glow: 0 0 38px 3px #00fff7cc, 0 0 16px 1px #8d00ff99;
+  /* Cyberpunk Neon Gradient Color Scheme */
+  --neon-blue: #00fff7;
+  --neon-magenta: #ff0bf3;
+  --neon-purple: #8d00ff;
+  --neon-cyan: #07d9ff;
+  --neon-electric-blue: #003cff;
+  --neon-pink: #ff008c;
+  --neon-deep-purple: #57009d;
+  --neon-bg-dark: #120022;
+  --cyberpunk-shadow: 0 0 38px 3px #00fff7cc, 0 0 16px 1px #8d00ff99, 0 0 42px 5px #ff0bf344;
+  --cyberpunk-glow: 0 0 40px 5px #00fff799, 0 0 14px 7px #ff0bf399;
 
   /* UI variables */
   --text-color: #ebf6ff;
-  --text-secondary: #e962ff;
-  --bg-main: linear-gradient(
-    120deg,
-    #222244 4%,
-    #5600ff 12%,
-    #8e00ff 24%,
-    #00fff7 39%,
-    #003cff 52%,
-    #ff0bf3 69%,
-    #ff008c 89%,
-    #57009d 97%
-  );
+  --text-secondary: #00fff7cc;
+  --bg-main: linear-gradient(120deg,
+    #0c0032 2%,
+    #5600ff 13%,
+    #003cff 24%,
+    #00fff7 33%,
+    #ff0bf3 54%,
+    #8d00ff 68%,
+    #57009d 83%,
+    #ff008c 97%);
   --bg-main-active: linear-gradient(
-    111deg,
-    #001232 10%,
-    #440066 27%,
-    #00ffd0 51%,
-    #23009d 67%,
-    #ff00b7 87%,
-    #5f28fc 98%
-  );
+    113deg,
+    #16002e 4%,
+    #003cff 16%,
+    #00fff7 32%,
+    #ff0bf3 50%,
+    #8d00ff 67%,
+    #00fff7 81%,
+    #ff008c 97%);
 
-  --border-color: #3ff2ff80;
-  --hover: rgba(0, 255, 247, 0.10);
+  --border-color: #00fff7cc;
+  --hover: rgba(0, 255, 247, 0.19);
   --navbar-height: 62px;
   --sidebar-width: 252px;
   --storybar-width: 160px;
 
-  --modern-glow: 0 2px 32px 0 #00fff855;
-  --shadow-md: 0 2px 16px #8e00ff55;
+  --modern-glow: 0 2px 39px 0 #00fff799, 0 0 22px #ff0bf357;
+  --shadow-md: 0 2px 18px #8d00ff66;
 
   --transition-main: 0.27s cubic-bezier(.49,.38,.22,.99);
   --transition-btn: background 0.18s, box-shadow 0.22s, color 0.18s;

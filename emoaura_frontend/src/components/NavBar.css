@@ -10,25 +10,40 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* Cyberpunk neon gradients + dynamic lighting */
+  /* Cyberpunk dynamic neon gradients with full glow, animated shimmer: */
   background: linear-gradient(
-    107deg,
-    #0a012c 0%,
-    #00fff7 30%,
-    #8d00ff 56%,
-    #ff0bf3 63%,
-    #003cff 94%
+    113deg,
+    #001232 6%,
+    #00fff7 23%,
+    #8d00ff 43%,
+    #ff0bf3 62%,
+    #003cff 84%,
+    #57009d 98%
   );
   color: var(--text-color);
-  border-bottom: 2.7px solid #00fff7cc;
+  border-bottom: 3.7px solid #00fff7cc;
   z-index: 100;
   box-shadow:
-    0 6px 32px #00fff744,
+    0 0 54px 9px #00fff744,
     0 0px 33px #ff0bf363,
-    0 1px 41px #3030ff43 inset;
+    0 8px 54px #8d00ff44 inset;
   transition: background var(--transition-main), box-shadow var(--transition-main);
-  backdrop-filter: blur(11px) saturate(140%);
-  -webkit-backdrop-filter: blur(11px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(177%);
+  -webkit-backdrop-filter: blur(14px) saturate(177%);
+  animation: cyberpunk-navbar-move 20s cubic-bezier(0.67,0.01,0.35,1) infinite alternate;
+  background-size: 144% 144%;
+}
+
+@keyframes cyberpunk-navbar-move {
+  0% {
+    background-position: 68% 13%;
+  }
+  43% {
+    background-position: 0% 97%;
+  }
+  100% {
+    background-position: 92% 18%;
+  }
 }
 
 .serene-navbar__logo {
@@ -44,44 +59,60 @@
 .serene-navbar__logo-symbol {
   width: 41px;
   height: 41px;
-  filter: drop-shadow(0 0 13px #00fff780) drop-shadow(0 0 21px #ff0bf355);
+  filter: drop-shadow(0 0 15px #00fff799) drop-shadow(0 0 32px #ff0bf377);
   background: linear-gradient(135deg, #00fff7cc 0%, #8d00ff 100%);
   border-radius: 50%;
-  border: 2.5px solid #8d00ffaa;
-  transition: border 0.15s, box-shadow 0.13s, filter .18s;
-  box-shadow: 0 0 0 6px #003cff1a, 0 0 48px #00fff742;
+  border: 2.7px solid #8d00ffaa;
+  transition: border 0.14s, box-shadow 0.13s, filter .18s;
+  box-shadow:
+    0 0 0 8px #003cff1e,
+    0 0 56px #00fff744,
+    0 0 22px #ff0bf355 inset;
 }
 
 .serene-navbar__brand {
-  font-size: 1.82rem;
-  letter-spacing: 3.1px;
+  font-size: 1.85rem;
+  letter-spacing: 3.3px;
   color: #fff;
   font-weight: bold;
   font-family: 'Orbitron','Inter', 'Arial', sans-serif;
-  text-shadow: 0 3px 22px #00fff7bf, 0 2px 8px #ff0bf3af, 0 6px 28px #8d00ff55;
+  text-shadow: 0 3px 25px #00fff7e6, 0 2px 11px #ff0bf3b9, 0 8px 23px #8d00ff55;
   padding-left: 9px;
-  transition: color 0.11s, text-shadow 0.15s;
+  transition: color 0.14s, text-shadow 0.17s;
   text-transform: uppercase;
 }
 
-/* Add neon pulse/glow on hover for logo area */
+/* Neon pulse/glow & flicker animation for hover */
+@keyframes cyberpunk-header-flicker {
+  0%, 97% { text-shadow: 0 0 25px #00fff7b6, 0 2px 13px #ff0bf3b4, 0 8px 23px #8d00ff44;}
+  11% { text-shadow: 0 0 45px #ff0bf3, 0 0 28px #00fff7;}
+  18% { text-shadow: 0 3px 48px #00fff7bb, 0 1px 35px #8d00ff;}
+  34% { text-shadow: 0 2px 22px #ff0bf3cc, 0 5px 39px #00fff7;}
+  44% { text-shadow: 0 2px 34px #003cffaa, 0 1px 17px #ff008c;}
+  66% { text-shadow: 0 5px 32px #ff0bf399, 0 2px 18px #00fff7b9;}
+  82% { text-shadow: 0 8px 52px #8d00ff88, 0 0 19px #ff0bf3;}
+}
+
 .serene-navbar__logo:hover .serene-navbar__logo-symbol {
   box-shadow:
-    0 0 22px 13px #00fff799,
-    0 0 52px #ff0bf399 inset;
-  border: 2.6px solid #00fff799;
-  filter: brightness(1.11) saturate(2.1);
+    0 0 42px 17px #00fff799,
+    0 0 62px #ff0bf399 inset,
+    0 0 30px 4px #003cffcc;
+  border: 3px solid #00fff799;
+  filter: brightness(1.18) saturate(2.8);
 }
 .serene-navbar__logo:hover .serene-navbar__brand {
   color: #00fff7;
-  text-shadow: 0 2px 21px #ff0bf3bb, 0 1px 21px #003cffcc;
+  text-shadow: 0 3px 45px #ff0bf3bb, 0 2px 19px #003cffcc, 0 8px 34px #8d00ff99;
+  animation: cyberpunk-header-flicker 2.2s infinite alternate;
   transition: color .14s, text-shadow .25s;
 }
 
 .serene-navbar__brand:hover {
-  color: #8d00ff;
-  text-shadow: 0 2px 18px #00fff7d7, 0 2px 13px #ff0bf373;
-  transition: color .15s, text-shadow .13s;
+  color: #ff0bf3;
+  text-shadow: 0 3px 45px #00fff7c7, 0 2px 27px #ff0bf373, 0 6px 38px #00fff799;
+  animation: cyberpunk-header-flicker 2.5s infinite alternate;
+  transition: color .15s, text-shadow .15s;
 }
 
 @media (max-width: 700px) {
@@ -90,6 +121,8 @@
     font-size: 1.12rem;
     min-height: 54px;
     box-shadow: 0 2px 10px #00fff71a, 0 0px 14px #8d00ff11;
+    background-size: 180% 160%;
+    animation-duration: 15s;
   }
   .serene-navbar__logo {
     font-size: 1.00rem;
