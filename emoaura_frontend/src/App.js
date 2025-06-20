@@ -1,31 +1,20 @@
 import React from 'react';
 import './App.css';
+import NavBar from './components/NavBar';
+import StoryBar from './components/StoryBar';
+import Sidebar from './components/Sidebar';
 
 // PUBLIC_INTERFACE
 function App() {
   return (
     <div className="emoaura-app">
       {/* Navigation Bar */}
-      <nav className="emoaura-navbar">
-        <div className="emoaura-navbar__logo">
-          <span className="emoaura-navbar__logo-symbol">🦋</span>
-          <span className="emoaura-navbar__brand">EmoAura</span>
-        </div>
-        <div className="emoaura-navbar__actions">
-          {/* Placeholder for navigation/action buttons */}
-          <button className="emoaura-navbar__action-btn">Log In</button>
-        </div>
-      </nav>
+      <NavBar />
 
       {/* Main Content Layout */}
       <div className="emoaura-main-container">
         {/* Story Bar */}
-        <aside className="emoaura-storybar">
-          {/* Placeholder for stories */}
-          <div className="emoaura-storybar__placeholder">
-            StoryBar
-          </div>
-        </aside>
+        <StoryBar />
 
         {/* Feed */}
         <main className="emoaura-feed">
@@ -35,11 +24,7 @@ function App() {
         </main>
 
         {/* Sidebar/Profile */}
-        <aside className="emoaura-sidebar">
-          <div className="emoaura-sidebar__placeholder">
-            Sidebar / Profile
-          </div>
-        </aside>
+        <Sidebar />
       </div>
 
       {/* Modal Overlays */}
