@@ -1,48 +1,24 @@
 :root {
-  /* Cyberpunk Neon Gradient Color Scheme */
-  --neon-blue: #00fff7;
-  --neon-magenta: #ff0bf3;
-  --neon-purple: #8d00ff;
-  --neon-cyan: #07d9ff;
-  --neon-electric-blue: #003cff;
-  --neon-pink: #ff008c;
-  --neon-deep-purple: #57009d;
-  --neon-bg-dark: #120022;
-  --cyberpunk-shadow: 0 0 38px 3px #00fff7cc, 0 0 16px 1px #8d00ff99, 0 0 42px 5px #ff0bf344;
-  --cyberpunk-glow: 0 0 40px 5px #00fff799, 0 0 14px 7px #ff0bf399;
-
-  /* UI variables */
-  --text-color: #ebf6ff;
-  --text-secondary: #00fff7cc;
-  --bg-main: linear-gradient(120deg,
-    #0c0032 2%,
-    #5600ff 13%,
-    #003cff 24%,
-    #00fff7 33%,
-    #ff0bf3 54%,
-    #8d00ff 68%,
-    #57009d 83%,
-    #ff008c 97%);
-  --bg-main-active: linear-gradient(
-    113deg,
-    #16002e 4%,
-    #003cff 16%,
-    #00fff7 32%,
-    #ff0bf3 50%,
-    #8d00ff 67%,
-    #00fff7 81%,
-    #ff008c 97%);
-
-  --border-color: #00fff7cc;
-  --hover: rgba(0, 255, 247, 0.19);
+  /* Soft Modern Pastel Palette */
+  --primary-pastel: #e0e7ef;
+  --secondary-pastel: #f8f6ff;
+  --accent-blue: #b6d0e2;
+  --accent-mint: #daf3e6;
+  --accent-peach: #ffe0d2;
+  --accent-lilac: #e4ddf4;
+  --neutral-white: #f9f9fa;
+  --neutral-grey: #e3e5e8;
+  --neutral-silver: #f3f4f7;
+  --neutral-outline: #d7dae1;
+  --soft-shadow: 0 2px 18px 0 rgba(80, 105, 160, 0.09), 0 0 18px 0 rgba(128,160,210,.08);
+  --soft-shadow-md: 0 8px 36px -8px rgba(140,155,180,0.14), 0 1px 9px 0 rgba(128,160,210,.13);
+  --text-color: #353642;
+  --text-secondary: #717487;
+  --border-color: #ededf2;
   --navbar-height: 62px;
   --sidebar-width: 252px;
   --storybar-width: 160px;
-
-  --modern-glow: 0 2px 39px 0 #00fff799, 0 0 22px #ff0bf357;
-  --shadow-md: 0 2px 18px #8d00ff66;
-
-  --transition-main: 0.27s cubic-bezier(.49,.38,.22,.99);
+  --transition-main: 0.24s cubic-bezier(.49,.38,.22,.99);
   --transition-btn: background 0.18s, box-shadow 0.22s, color 0.18s;
 }
 
@@ -50,25 +26,11 @@ body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   min-height: 100vh;
-  background: var(--bg-main) fixed !important;
+  background: var(--neutral-white) !important;
   color: var(--text-color);
-  animation: cyberpunkGradientMove 26s cubic-bezier(0.67,0.01,0.35,1) infinite alternate;
-  background-size: 222% 188%;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@keyframes cyberpunkGradientMove {
-  0% {
-    background-position: 10% 55%;
-  }
-  43% {
-    background-position: 90% 41%;
-  }
-  100% {
-    background-position: 13% 23%;
-  }
 }
 
 /* ------ Sérene App Container ------ */
@@ -76,12 +38,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    120deg,
-    #1e0033 5%, #5500ad 37%, #00fff7 72%, #ff0bf3 100%
-  );
-  box-shadow: 0 0 42px 0 #00fff770 inset, 0 2px 48px #8e00ff28;
-  background-blend-mode: lighten;
+  background: var(--secondary-pastel);
+  box-shadow: none;
+  background-blend-mode: normal;
   transition: background 0.33s;
 }
 
@@ -97,16 +56,12 @@ body {
   margin-top: var(--navbar-height);
   min-height: calc(100vh - var(--navbar-height));
   width: 100%;
-  background: linear-gradient(135deg, #1b0032 5%, #440066 44%, #07d9ff 83%, #ff0bf3 100%);
-  border-top: 3px solid #ff0bf333;
-  border-bottom: 2px solid #00fff747;
-  box-shadow:
-    0 0 32px #00fff777 inset,
-    0 2px 11px #8e00ff19,
-    0 11px 72px #003cff21;
+  background: var(--neutral-silver);
+  border-top: 1.7px solid var(--neutral-outline);
+  border-bottom: 1.7px solid var(--neutral-outline);
+  box-shadow: var(--soft-shadow-md);
   z-index: 2;
-  background-blend-mode: lighten;
-  /* Use space-between so that sidebar sticks right, nav left */
+  background-blend-mode: normal;
 }
 
 /* Center column with stories strip + feed */
@@ -118,74 +73,58 @@ body {
   flex-direction: column;
   align-items: stretch;
   padding: 32px 0 0 0;
-  /* Adds space for fixed header height above */
   align-self: stretch;
-  background: transparent; /* blended with gradients */
-  /* soft edge for content separation */
-  border-radius: 30px;
-  box-shadow: 0 0 54px 8px #8d00ff29;
-  /* Vertical scroll inside the feed, not on full page */
+  background: transparent;
+  border-radius: 24px;
+  box-shadow: var(--soft-shadow);
 }
 
 @media (max-width: 700px) {
   .serene-center-col {
     padding: 15px 0 0 0;
-    border-radius: 13px;
-    box-shadow: 0 0 19px #8d00ff13;
+    border-radius: 10px;
+    box-shadow: 0 0 13px rgba(145,155,190, 0.10);
   }
 }
-
-/* --- Placeholder for original storybar/sidebar/feed CSS ---
-   --- Remove red/references to old EmoAura classes ---
-*/
 
 /* StoryBar Vertical (now for navigation) */
 .serene-storybar {
   width: var(--storybar-width);
   min-width: 90px;
-  background: rgba(41,43,66,0.72);
-  border-right: 1.3px solid var(--border-color);
+  background: var(--neutral-silver);
+  border-right: 1.3px solid var(--neutral-outline);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 23px 0 0 0;
-  box-shadow: 0 0 22px #5d69ff19;
+  box-shadow: 4px 0 13px -6px rgba(110,125,155,0.07);
   z-index: 30;
 }
 
-/* Vertical nav button style */
-.serene-nav-link {
-  background: none;
-  border: none;
-  color: var(--text-color);
-  font-size: 1.18rem;
+/* Vertical nav button style is in StoryBar.css */
+
+/* Sidebar / Profile */
+.serene-sidebar {
+  width: var(--sidebar-width);
+  min-width: 180px;
+  padding: 32px 8px;
+  background: var(--neutral-silver);
+  border-left: 1.3px solid var(--neutral-outline);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: -2px 4px 18px rgba(140,155,180,0.06);
+}
+.serene-sidebar__placeholder {
+  color: #b2b8c7;
+  border: 1.5px dashed #c8cbda;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 1.05rem;
   font-weight: 500;
-  padding: 13px 24px 13px 18px;
-  border-radius: 28px 0 0 28px;
-  cursor: pointer;
-  margin: 0 0 7px 0;
-  width: 100%;
-  text-align: left;
-  text-decoration: none;
-  transition: background .17s, color .14s, box-shadow .22s;
-  letter-spacing: 0.8px;
-}
-.serene-nav-link.active, .serene-nav-link:focus, .serene-nav-link:hover {
-  background: linear-gradient(90deg,#b491f610 80%, #5EE2FF11 100%);
-  color: #5EE2FF;
-  font-weight: 700;
-  box-shadow: 0 0 0 1.4px var(--serene-accent);
 }
 
-.serene-storybar__title {
-  font-size: 1.01rem;
-  letter-spacing: 1.3px;
-  color: #5d69ff;
-  font-weight: 600;
-  padding: 12px 20px 8px 20px;
-  opacity: 0.77;
-}
-
+/* Feed and placeholder */
 .serene-feed {
   flex: 1;
   display: flex;
@@ -193,64 +132,41 @@ body {
   justify-content: center;
   padding: 38px 12px 0 12px;
   min-width: 0;
-  background: radial-gradient(ellipse at 20% 20%, #00fff747 43%, transparent 80%),
-              radial-gradient(circle at 90% 40%, #ff0bf333 12%, transparent 55%);
+  background: none;
 }
 
+/* Feed area placeholder */
 .serene-feed__placeholder {
   width: 100%;
   max-width: 540px;
-  background: linear-gradient(100deg, #161731dd 80%, #130726f7 98%);
+  background: var(--neutral-white);
   padding: 38px 0;
   border-radius: 20px;
-  color: #fff7fe;
+  color: var(--text-color);
   text-align: center;
   font-size: 1.3rem;
   font-weight: 600;
-  border: 2.7px solid #00fff7bb;
-  box-shadow: 0 1px 32px #00fff744, 0 0 18px #ff0bf336 inset;
-  text-shadow: 0 2px 12px #00fff733, 0 1px 7px #ff0bf341;
+  border: 1.7px solid var(--neutral-outline);
+  box-shadow: var(--soft-shadow);
+  text-shadow: none;
 }
 
-
-/* Sidebar / Profile */
-.serene-sidebar {
-  width: var(--sidebar-width);
-  min-width: 180px;
-  padding: 32px 8px;
-  background: rgba(41,43,66,0.82);
-  border-left: 1.3px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-shadow: -2px 2px 18px #b491f622;
-}
-.serene-sidebar__placeholder {
-  color: #7eb4ff;
-  border: 1.5px dashed #5d69ffac;
-  padding: 20px;
-  border-radius: 12px;
-  font-size: 1.05rem;
-  font-weight: 500;
-}
-
-/* ------ Modal Overlay Placeholder ------ */
+/* Modal Overlay Placeholder */
 .serene-modal-overlay {
   position: fixed;
   top: 0; left: 0;
   right: 0; bottom: 0;
   z-index: 300;
-  background: linear-gradient(115deg, #00fff722 40%, #ff0bf337 100%) rgba(27, 8, 56, 0.76);
+  background: rgba(200,202,220,0.39);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  color: #fff;
-  backdrop-filter: blur(8px) saturate(137%);
-  -webkit-backdrop-filter: blur(8px) saturate(137%);
+  color: var(--text-secondary);
+  backdrop-filter: blur(8px) saturate(130%);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
 }
 
-/* ------ Responsive Design ------ */
 @media (max-width: 900px) {
   .serene-sidebar {
     display: none;
@@ -265,7 +181,7 @@ body {
     width: 100%;
     min-width: 0;
     border-right: none;
-    border-bottom: 1.3px solid var(--border-color);
+    border-bottom: 1.3px solid var(--neutral-outline);
     justify-content: flex-start;
     align-items: center;
     padding: 0 4px 12px 4px;
