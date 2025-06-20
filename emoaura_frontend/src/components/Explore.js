@@ -264,43 +264,111 @@ function StickyFilterBar({ search, setSearch }) {
   );
 }
 
+/**
+ * ExploreImageCard (Interactive Explore Card with animated reveal of actions & modal preview)
+ */
 // PUBLIC_INTERFACE
 function ExploreImageCard({ block }) {
   /**
-   * Interactive, animated card for image block with hover effect.
+   * Interactive, animated card for image block on Explore grid.
+   * - Reveals action bar (like, save, preview) on hover/focus with smooth animation.
+   * - Like/save are toggles; save shows a toast.
+   * - Preview triggers modal showing larger image, animates in/out.
    */
+  const [hovered, setHovered] = useState(false);
   const [liked, setLiked] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  // Save action toast logic
+  function handleSave() {
+    setSaved(v => !v);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 1200);
+  }
+
+  function handlePreview(e) {
+    setShowModal(true);
+    e?.preventDefault();
+  }
+
+  // Close modal on [Esc]
+  useEffect(() => {
+    if (!showModal) return;
+    function onKey(e) {
+      if (e.key === "Escape") setShowModal(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [showModal]);
+
   return (
-    <div className="explore-card explore-image-card" tabIndex={0}>
+    <div
+      className="explore-card explore-image-card"
+      tabIndex={0}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
+      aria-label={`Explore post by ${block.username}`}
+      style={{ position: "relative" }}
+    >
       {/* USER HEADER */}
       <div className="explore-card__header">
         <img src={block.avatar} className="explore-card__avatar" alt="" loading="lazy" />
         <span className="explore-card__username">{block.username}</span>
       </div>
-      {/* IMAGE */}
+
+      {/* IMAGE with Preview click */}
       <div
         className="explore-card__media"
         style={{
           height: block.height,
-          background: "linear-gradient(118deg,#0ffccf18 60%, #8d00ff22 120%)"
+          background: "linear-gradient(118deg,#0ffccf18 60%, #8d00ff22 120%)",
+          cursor: "pointer"
+        }}
+        onClick={handlePreview}
+        role="button"
+        tabIndex={0}
+        aria-label="Preview image"
+        onKeyDown={e => {
+          if (e.key === "Enter" || e.key === " ") handlePreview(e);
         }}
       >
         <img src={block.image} alt="Explore post" loading="lazy" className="explore-card__img" />
       </div>
+
       {/* CAPTION */}
       <div className="explore-card__caption">{block.caption}</div>
-      {/* INTERACTION BAR */}
-      <div className="explore-card__actions">
+
+      {/* ACTIONS with animated reveal (like, save, preview) */}
+      <div
+        className="explore-card__actions"
+        tabIndex={-1}
+        style={{
+          maxHeight: hovered ? 70 : 0,
+          opacity: hovered ? 1 : 0,
+          pointerEvents: hovered ? "auto" : "none",
+          transition: "all 0.34s cubic-bezier(.52,.36,.14,.99)",
+          transform: hovered ? "translateY(0)" : "translateY(7px) scale(0.98)",
+          position: "relative"
+        }}
+        aria-hidden={!hovered}
+      >
         {/* Like */}
         <button
           type="button"
           aria-pressed={liked}
           aria-label={liked ? "Unlike" : "Like"}
-          onClick={() => setLiked(l => !l)}
+          onClick={e => {
+            e.stopPropagation();
+            setLiked(l => !l);
+          }}
           style={{
             color: liked ? "#fa3e3e" : "#fff7fd",
-            filter: liked ? "drop-shadow(0 0 9px #fa3e3e)" : "none"
+            filter: liked ? "drop-shadow(0 0 9px #fa3e3e)" : "none",
+            transition: "color 0.19s, filter 0.21s"
           }}
           tabIndex={0}
         >
@@ -310,30 +378,173 @@ function ExploreImageCard({ block }) {
         <button
           type="button"
           aria-label={saved ? "Unsave" : "Save"}
-          onClick={() => setSaved(v => !v)}
-          style={{ color: saved ? "#00fff7" : "#fff" }}
+          onClick={e => {
+            e.stopPropagation();
+            handleSave();
+          }}
+          style={{
+            color: saved ? "#00fff7" : "#fff",
+            transition: "color 0.18s"
+          }}
           tabIndex={0}
         >
           <span role="img" aria-label="Save">
             {saved ? "🔖" : "📑"}
           </span>
         </button>
+        {/* Preview */}
+        <button
+          type="button"
+          aria-label="Preview"
+          onClick={e => {
+            e.stopPropagation();
+            handlePreview(e);
+          }}
+          style={{ color: "#ff39b5", fontSize: 22 }}
+          tabIndex={0}
+        >
+          <span role="img" aria-label="Preview">🔍</span>
+        </button>
       </div>
+
+      {/* Save Toast (animated) */}
+      {showToast && (
+        <div
+          style={{
+            position: "absolute",
+            top: 28,
+            right: 20,
+            background: "linear-gradient(90deg,#8d00ff 7%,#00fff7 100%)",
+            color: "#fff",
+            borderRadius: 15,
+            boxShadow: "0 2px 11px #00fff764",
+            padding: "7px 16px",
+            fontWeight: 600,
+            fontSize: "1rem",
+            letterSpacing: "0.7px",
+            zIndex: 22,
+            opacity: 0.96,
+            animation: "fadeinout 1.18s"
+          }}
+        >
+          {saved ? "Saved!" : "Unsaved"}
+        </div>
+      )}
+
+      {/* Modal Preview (fullscreen) */}
+      {showModal && (
+        <ExploreModal onClose={() => setShowModal(false)}>
+          <img
+            src={block.image}
+            alt="Preview fullscreen"
+            style={{
+              width: "68vw",
+              maxWidth: 640,
+              maxHeight: "80vh",
+              borderRadius: "16px",
+              boxShadow: "0 0 44px #8d00ffcc, 0 0 30px #0ffccfaa",
+              display: "block",
+              margin: "auto"
+            }}
+          />
+        </ExploreModal>
+      )}
+
+      {/* CSS for fadeinout toast animation */}
+      <style>
+        {`
+          @keyframes fadeinout {
+            0% { opacity: 0; transform: translateY(-14px) scale(0.91);}
+            9% { opacity: 1; transform: translateY(0) scale(1);}
+            86% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-9px) scale(0.93);}
+          }
+        `}
+      </style>
     </div>
   );
 }
 
+/**
+ * ExploreModal renders children in a centered overlay.
+ * Dismisses on background click or [Esc].
+ */
+function ExploreModal({ children, onClose }) {
+  return (
+    <div
+      className="serene-modal-overlay"
+      style={{
+        display: "flex",
+        animation: "modalIn 0.38s cubic-bezier(.51,.33,.18,1.1)"
+      }}
+      onClick={onClose}
+      aria-modal="true"
+      tabIndex={-1}
+    >
+      <div
+        style={{
+          background: "rgba(27,20,90,0.91)",
+          borderRadius: "22px",
+          padding: "2.18vw 1.8vw",
+          maxWidth: "90vw",
+          boxShadow: "0 0 44px #ff39b599, 0 0 37px #0ffccfa7",
+          margin: "auto",
+          maxHeight: "95vh"
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        {children}
+        <button
+          aria-label="Close preview"
+          onClick={onClose}
+          style={{
+            position: "absolute",
+            top: 13,
+            right: 24,
+            background: "none",
+            border: "none",
+            color: "#ff39b5",
+            fontSize: 32,
+            cursor: "pointer",
+            textShadow: "0 0 9px #8d00ff,0 0 4px #0ffccfaa"
+          }}
+        >×</button>
+      </div>
+      <style>
+        {`
+          @keyframes modalIn {
+            0% {opacity:0;transform:scale(0.86);}
+            87% {opacity:1;}
+            100% {opacity:1;transform:scale(1);}
+          }
+        `}
+      </style>
+    </div>
+  );
+}
+
+/**
+ * ExploreTextCard (Interactive text card with animated action reveal)
+ */
 // PUBLIC_INTERFACE
 function ExploreTextCard({ block }) {
   /**
-   * Interactive card for text only block (quote/thought).
+   * Interactive card for text-only (quote/thought) Explore block.
+   * - Like button, animated reveal of actions on hover/focus.
+   * - Matches animation/behavior pattern of image card for consistency.
    */
+  const [hovered, setHovered] = useState(false);
   const [liked, setLiked] = useState(false);
   return (
     <div
       className="explore-card explore-text-card"
-      style={{ background: block.bg, minHeight: block.height }}
+      style={{ background: block.bg, minHeight: block.height, position: "relative" }}
       tabIndex={0}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
+      aria-label={`Quote by ${block.username}`}
     >
       <div className="explore-card__header">
         <img src={block.avatar} className="explore-card__avatar" alt="" loading="lazy" />
@@ -342,13 +553,28 @@ function ExploreTextCard({ block }) {
       <div className="explore-card__caption explore-card__caption--textonly">
         “{block.text}”
       </div>
-      <div className="explore-card__actions">
+      <div
+        className="explore-card__actions"
+        tabIndex={-1}
+        style={{
+          maxHeight: hovered ? 65 : 0,
+          opacity: hovered ? 1 : 0,
+          pointerEvents: hovered ? "auto" : "none",
+          transition: "all 0.32s cubic-bezier(.52,.36,.14,.99)",
+          transform: hovered ? "translateY(0)" : "translateY(7px) scale(0.98)",
+          position: "relative"
+        }}
+        aria-hidden={!hovered}
+      >
         {/* Like */}
         <button
           type="button"
           aria-pressed={liked}
           aria-label={liked ? "Unlike" : "Like"}
-          onClick={() => setLiked(l => !l)}
+          onClick={e => {
+            e.stopPropagation();
+            setLiked(l => !l);
+          }}
           style={{
             color: liked ? "#fa3e3e" : "#fff7fd",
             filter: liked ? "drop-shadow(0 0 7px #fa3e3e)" : "none"
