@@ -22,4 +22,4 @@ javascript modules 1.64 MiB
     modules by path ./.ve/*.css 2.93 KiB 2 modules
     ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
 ./src/assets/logo.svg 1.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
-webpack 5.99.9 compiled successfully in 1551 ms
+webpack 5.99.9 compiled successfully in 1522 ms
