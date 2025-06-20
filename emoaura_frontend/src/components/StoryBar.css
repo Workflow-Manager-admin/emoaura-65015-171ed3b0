@@ -11,13 +11,14 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 24px 0 8px 0;
-  z-index: 30;
+  z-index: 40;
   transition: background 0.22s, box-shadow 0.24s;
   backdrop-filter: blur(3px) saturate(160%);
   -webkit-backdrop-filter: blur(3px) saturate(160%);
   position: relative;
   border-radius: 13px 0 0 13px;
   animation: storybarFlux 9s linear infinite alternate;
+  /* Fixed positioning and top/left handled in App.css via .serene-storybar when on desktop */
 }
 @keyframes storybarFlux {
   0% { box-shadow: 0 0 28px #0ffccf33, 4px 0 17px #8d00ff44; }
@@ -138,6 +139,7 @@
       #0ffccf 100%
     );
     border-radius: 0 0 21px 21px;
+    position: static !important;
   }
   .serene-storybar__title {display: none;}
   .serene-nav-link {

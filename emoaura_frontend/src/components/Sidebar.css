@@ -14,7 +14,10 @@
   animation: sidebarGlow 8s linear infinite alternate;
   backdrop-filter: blur(3px) saturate(190%);
   -webkit-backdrop-filter: blur(3px) saturate(190%);
+  z-index: 35;
+  /* Position and height handled in App.css for fixed sidebar */
 }
+
 @keyframes sidebarGlow {
   0% { box-shadow: -10px 0 44px #0ffccf33; }
   65% { box-shadow: -2px 0 21px #8d00ff55; }

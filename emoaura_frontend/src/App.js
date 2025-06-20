@@ -29,23 +29,25 @@ function App() {
           <StoryBar />
 
           {/* Central Column: stories strip + scrollable feed */}
-          <div className="serene-center-col serene-scrollable-content">
-            {/* Horizontal stories strip under header */}
-            <StoryStrip />
-            {/* Main Feed Scrollable */}
-            <main className="serene-feed">
-              <Routes>
-                <Route path="/" element={<FeedPage />} />
-                <Route path="/explore" element={<ExplorePage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/admin" element={<AdminPage />} />
-                <Route path="/messaging" element={<MessagingPage />} />
-                {/* Optionally add: Journals, Post, TuneMyMood, if implemented */}
-                {/* <Route path="/journals" element={<JournalsPage />} /> */}
-                {/* <Route path="/post" element={<PostPage />} /> */}
-                {/* <Route path="/tune" element={<TuneMyMoodPage />} /> */}
-              </Routes>
-            </main>
+          <div className="serene-center-col">
+            <div className="serene-scrollable-content">
+              {/* Horizontal stories strip under header */}
+              <StoryStrip />
+              {/* Main Feed Scrollable */}
+              <main className="serene-feed">
+                <Routes>
+                  <Route path="/" element={<FeedPage />} />
+                  <Route path="/explore" element={<ExplorePage />} />
+                  <Route path="/profile" element={<ProfilePage />} />
+                  <Route path="/admin" element={<AdminPage />} />
+                  <Route path="/messaging" element={<MessagingPage />} />
+                  {/* Optionally add: Journals, Post, TuneMyMood, if implemented */}
+                  {/* <Route path="/journals" element={<JournalsPage />} /> */}
+                  {/* <Route path="/post" element={<PostPage />} /> */}
+                  {/* <Route path="/tune" element={<TuneMyMoodPage />} /> */}
+                </Routes>
+              </main>
+            </div>
           </div>
 
           {/* Right sidebar */}
