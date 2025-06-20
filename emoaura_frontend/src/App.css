@@ -2,16 +2,25 @@
   /* EmoAura Brand Colors */
   --emoaura-primary: #a83e3e;
   --emoaura-secondary: #000000;
-  --emoaura-accent: #000000;
+  --emoaura-accent: #a83e3e;
 
   /* UI variables */
-  --text-color: #ffffff;
+  --text-color: #fff;
   --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.06);
+  --bg-main: #191414;
+  --border-color: rgba(255, 255, 255, 0.10);
+  --hover: rgba(168,62,62,0.10);
   --navbar-height: 60px;
   --sidebar-width: 240px;
   --storybar-width: 120px;
-  --bg-main: #191414;
+
+  /* Glow/shadow for aura vibe */
+  --aura-glow: 0 2px 28px 0 rgba(168,62,62, 0.19);
+  --shadow-md: 0 2px 6px rgba(20,20,20,0.16);
+
+  /* Animations */
+  --transition-main: 0.2s cubic-bezier(.49,.38,.22,.99);
+  --transition-btn: background 0.14s, box-shadow 0.22s, color 0.18s;
 }
 
 body {

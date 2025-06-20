@@ -1,4 +1,6 @@
+// EmoAura Story Bar
 import React from "react";
+import './StoryBar.css';
 
 // PUBLIC_INTERFACE
 function StoryBar() {

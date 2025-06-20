@@ -1,4 +1,6 @@
+// EmoAura Sidebar
 import React from "react";
+import './Sidebar.css';
 
 // PUBLIC_INTERFACE
 function Sidebar() {

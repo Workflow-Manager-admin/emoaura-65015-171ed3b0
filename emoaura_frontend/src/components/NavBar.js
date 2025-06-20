@@ -1,4 +1,6 @@
+// EmoAura Navigation Bar
 import React from "react";
+import './NavBar.css';
 
 // PUBLIC_INTERFACE
 function NavBar() {

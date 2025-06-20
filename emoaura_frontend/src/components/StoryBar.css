@@ -1,0 +1,54 @@
+:root {}
+
+.emoaura-storybar {
+  width: var(--storybar-width);
+  min-width: 94px;
+  background: var(--emoaura-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 18px;
+  box-shadow: 0 0 12px 0 #a83e3e10;
+  transition: background var(--transition-main), box-shadow var(--transition-main);
+}
+
+.emoaura-storybar__placeholder {
+  background: linear-gradient(140deg, #fff2 30%, #a83e3e0c 90%);
+  color: var(--text-secondary);
+  border-radius: 13px;
+  padding: 22px 10px;
+  width: 85px;
+  text-align: center;
+  font-size: 0.97rem;
+  font-weight: 600;
+  box-shadow: 0 1px 8px #a83e3e10;
+  border: 1.25px dashed var(--emoaura-primary);
+  transition: background 0.19s;
+}
+.emoaura-storybar__placeholder:hover {
+  background: #a83e3e23;
+  color: var(--emoaura-primary);
+  box-shadow: 0 2px 18px #a83e3e33;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .emoaura-storybar {
+    flex-direction: row;
+    width: 100%;
+    min-width: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 4px 12px 4px;
+    box-shadow: none;
+  }
+  .emoaura-storybar__placeholder {
+    width: 90vw;
+    max-width: 220px;
+    padding: 14px 2px;
+    font-size: 0.96rem;
+  }
+}

@@ -1,0 +1,96 @@
+:root {}
+
+.emoaura-navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--navbar-height);
+  box-sizing: border-box;
+  padding: 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, var(--emoaura-primary) 70%, #330f0f 100%);
+  color: var(--text-color);
+  border-bottom: 1.5px solid var(--border-color);
+  z-index: 100;
+  transition: background var(--transition-main), box-shadow var(--transition-main);
+  box-shadow: var(--aura-glow);
+}
+
+.emoaura-navbar__logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  gap: 12px;
+  letter-spacing: 1.5px;
+}
+
+.emoaura-navbar__logo-symbol {
+  font-size: 2.1rem;
+  background: linear-gradient(135deg, var(--emoaura-accent), #fff3);
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 1px 10px #a83e3e33;
+  padding: 4px 10px;
+  margin-right: 2px;
+  transition: transform .176s cubic-bezier(.63,.09,.46,1.08);
+}
+.emoaura-navbar__logo-symbol:hover {
+  transform: scale(1.15) rotate(-7deg);
+  cursor:pointer;
+}
+
+.emoaura-navbar__brand {
+  letter-spacing: 1.6px;
+  color: #fff;
+  text-shadow: 0 1px 8px #a83e3eef;
+}
+
+.emoaura-navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.emoaura-navbar__action-btn {
+  background: var(--emoaura-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 22px;
+  font-size: 1.01rem;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  outline: none;
+  transition: background var(--transition-btn), color var(--transition-btn), transform 0.14s;
+}
+.emoaura-navbar__action-btn:hover {
+  background: var(--emoaura-primary);
+  color: #fff;
+  transform: translateY(-1px) scale(1.045);
+  box-shadow: 0 0 0 2px var(--hover);
+}
+
+@media (max-width: 700px) {
+  .emoaura-navbar {
+    padding: 0 10px;
+    font-size: 1.13rem;
+  }
+  .emoaura-navbar__logo {
+    font-size: 1.11rem;
+  }
+  .emoaura-navbar__action-btn {
+    padding: 7px 12px;
+    font-size: 0.93rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .emoaura-navbar__actions {
+    gap: 3px;
+  }
+}
