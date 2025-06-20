@@ -24,6 +24,7 @@
   backdrop-filter: blur(6px) saturate(150%);
   -webkit-backdrop-filter: blur(6px) saturate(150%);
   animation: navbarFlux 13s linear infinite alternate;
+  font-family: 'Times New Roman', Times, serif !important;
 }
 @keyframes navbarFlux {
   0% {box-shadow: 0 4px 40px -8px #0ffccfaa;}
@@ -66,6 +67,15 @@
   padding-left: 13px;
   transition: color 0.16s, text-shadow 0.19s;
   text-transform: uppercase;
+}
+
+/* Enforce font for all nav bar items */
+.serene-navbar,
+.serene-navbar *,
+.serene-navbar__logo,
+.serene-navbar__logo-symbol,
+.serene-navbar__brand {
+  font-family: 'Times New Roman', Times, serif !important;
 }
 
 .serene-navbar__logo:hover .serene-navbar__brand,

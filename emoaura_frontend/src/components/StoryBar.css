@@ -2,6 +2,7 @@
 
 .serene-storybar {
   --storybar-width-expanded: 220px;
+  font-family: 'Times New Roman', Times, serif !important;
   width: var(--storybar-width-expanded, 160px);
   min-width: 150px;
   background: linear-gradient(130deg, #14102c 35%, #181240 89%, #0ffccf3c 120%);
@@ -120,6 +121,14 @@
     font-size: 1.01rem;
   }
 }
+
+/* Enforce Times New Roman font for nav elements and items (strongly) */
+.serene-storybar,
+.serene-storybar *,
+.serene-nav-link,
+.serene-storybar__title {
+  font-family: 'Times New Roman', Times, serif !important;
+}
 @media (max-width: 700px) {
   .serene-storybar {
     flex-direction: row;
@@ -149,4 +158,12 @@
     font-size: 0.94rem;
     letter-spacing: 0.7px;
   }
+}
+
+/* Enforce Times New Roman font for nav elements and items (strongly) */
+.serene-storybar,
+.serene-storybar *,
+.serene-nav-link,
+.serene-storybar__title {
+  font-family: 'Times New Roman', Times, serif !important;
 }

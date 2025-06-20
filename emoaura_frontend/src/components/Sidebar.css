@@ -2,6 +2,7 @@
 
 .serene-sidebar {
   width: var(--sidebar-width, 230px);
+  font-family: 'Times New Roman', Times, serif !important;
   min-width: 180px;
   padding: 32px 8px;
   background: linear-gradient(120deg, #1a145d 65%, #0ffccf22 130%);
@@ -43,10 +44,24 @@
     display: none;
   }
 }
+
+/* Enforce font on sidebar and nested elements (strongest override) */
+.serene-sidebar,
+.serene-sidebar *,
+.serene-sidebar__placeholder {
+  font-family: 'Times New Roman', Times, serif !important;
+}
 @media (max-width: 600px) {
   .serene-sidebar__placeholder {
     font-size: 1.0rem;
     padding: 10px 3px;
     border-radius: 7px;
   }
+}
+
+/* Enforce font on sidebar and nested elements (strongest override) */
+.serene-sidebar,
+.serene-sidebar *,
+.serene-sidebar__placeholder {
+  font-family: 'Times New Roman', Times, serif !important;
 }

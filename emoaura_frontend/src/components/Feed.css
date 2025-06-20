@@ -1,5 +1,4 @@
 :root {}
-
 .serene-feed-list {
   width: 100%;
   max-width: 510px;
@@ -119,6 +118,16 @@
 }
 
 /* Responsive behaviour */
+/* Enforce Times New Roman font across all Feed component key classes */
+.serene-feed-list,
+.serene-post-card,
+.serene-post-card *,
+.serene-post-card__user,
+.serene-post-card__username,
+.serene-post-card__caption {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
 @media (max-width: 700px) {
   .serene-feed-list {
     max-width: 99vw;

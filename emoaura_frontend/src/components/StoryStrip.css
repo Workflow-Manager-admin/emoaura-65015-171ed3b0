@@ -1,7 +1,7 @@
 :root {}
-
 .serene-story-strip {
   display: flex;
+  font-family: 'Times New Roman', Times, serif !important;
   flex-direction: row;
   align-items: center;
   gap: 18px;
@@ -113,4 +113,11 @@
   .serene-story-strip__user {
     font-size: 0.81rem;
   }
+}
+
+/* Enforce font for all story strip inner items and captions */
+.serene-story-strip,
+.serene-story-strip *,
+.serene-story-strip__user {
+  font-family: 'Times New Roman', Times, serif !important;
 }
