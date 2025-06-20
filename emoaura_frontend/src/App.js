@@ -18,25 +18,27 @@ import {
 function App() {
   return (
     <Router>
-      <div className="emoaura-app">
-        {/* Navigation Bar */}
+      <div className="serene-app">
+        {/* Navigation Bar - now minimal, logo/appname only */}
         <NavBar />
 
         {/* Main Content Layout */}
-        <div className="emoaura-main-container">
-          {/* Story Bar */}
+        <div className="serene-main-container">
+          {/* Vertical Side Menu */}
           <StoryBar />
 
           {/* Routed Feed/Main Area */}
-          <main className="emoaura-feed">
+          <main className="serene-feed">
             <Routes>
               <Route path="/" element={<FeedPage />} />
               <Route path="/explore" element={<ExplorePage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/messaging" element={<MessagingPage />} />
-              {/* Optionally add a fallback route */}
-              {/* <Route path="*" element={<FeedPage />} /> */}
+              {/* Optionally add: Journals, Post, TuneMyMood, if implemented */}
+              {/* <Route path="/journals" element={<JournalsPage />} /> */}
+              {/* <Route path="/post" element={<PostPage />} /> */}
+              {/* <Route path="/tune" element={<TuneMyMoodPage />} /> */}
             </Routes>
           </main>
 
@@ -45,7 +47,7 @@ function App() {
         </div>
 
         {/* Modal Overlays */}
-        <div className="emoaura-modal-overlay" style={{ display: "none" }}>
+        <div className="serene-modal-overlay" style={{ display: "none" }}>
           {/* Placeholder for overlays: will be used for popups/modal dialogs */}
           Modal Overlay Placeholder
         </div>
