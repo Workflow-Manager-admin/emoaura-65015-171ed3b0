@@ -1,39 +1,49 @@
 :root {
-  /* Sérene Instagram-like Dynamic Gradient Scheme */
-  --serene-primary: #5EE2FF;
-  --serene-secondary: #B491F6;
-  --serene-accent: #5D69FF;
-  --serene-ig-1: #f9ce34;
-  --serene-ig-2: #ee2a7b;
-  --serene-ig-3: #6228d7;
-  --serene-ig-4: #5EE2FF; /* Light cyan/blue pop */
-  --serene-ig-5: #F3EAFF;
-  --serene-ig-6: #B491F6;
-  --serene-ig-dark: #252139;
-  --serene-ig-glow: 0 2px 22px 0 #5EE2FF33;
+  /* Sérene Cyberpunk Neon Vibrant Scheme */
+  --cyberpunk-neon-1: #00fff7;
+  --cyberpunk-neon-2: #8d00ff;
+  --cyberpunk-neon-3: #ff0bf3;
+  --cyberpunk-neon-4: #003cff;
+  --cyberpunk-neon-5: #07d9ff;
+  --cyberpunk-neon-6: #ff008c;
+  --cyberpunk-purple: #57009d;
+  --cyberpunk-bg-dark: #120022;
+  --cyberpunk-glow: 0 0 38px 3px #00fff7cc, 0 0 16px 1px #8d00ff99;
 
   /* UI variables */
-  --text-color: #fff;
-  --text-secondary: rgba(255,255,255,0.78);
+  --text-color: #ebf6ff;
+  --text-secondary: #e962ff;
   --bg-main: linear-gradient(
-    125deg,
-    #f9ce34 4%,
-    #ee2a7b 25%,
-    #6228d7 53%,
-    #5d69ff 71%,
-    #5EE2FF 85%,
-    #B491F6 97%
+    120deg,
+    #222244 4%,
+    #5600ff 12%,
+    #8e00ff 24%,
+    #00fff7 39%,
+    #003cff 52%,
+    #ff0bf3 69%,
+    #ff008c 89%,
+    #57009d 97%
   );
-  --border-color: rgba(255,255,255,0.11);
-  --hover: rgba(130, 205, 251, 0.14);
-  --navbar-height: 60px;
-  --sidebar-width: 240px;
-  --storybar-width: 120px;
+  --bg-main-active: linear-gradient(
+    111deg,
+    #001232 10%,
+    #440066 27%,
+    #00ffd0 51%,
+    #23009d 67%,
+    #ff00b7 87%,
+    #5f28fc 98%
+  );
 
-  --modern-glow: 0 2px 22px 0 #5EE2FF33;
-  --shadow-md: 0 2px 8px #B491F655;
+  --border-color: #3ff2ff80;
+  --hover: rgba(0, 255, 247, 0.10);
+  --navbar-height: 62px;
+  --sidebar-width: 252px;
+  --storybar-width: 160px;
 
-  --transition-main: 0.22s cubic-bezier(.49,.38,.22,.99);
+  --modern-glow: 0 2px 32px 0 #00fff855;
+  --shadow-md: 0 2px 16px #8e00ff55;
+
+  --transition-main: 0.27s cubic-bezier(.49,.38,.22,.99);
   --transition-btn: background 0.18s, box-shadow 0.22s, color 0.18s;
 }
 
@@ -43,21 +53,22 @@ body {
   min-height: 100vh;
   background: var(--bg-main) fixed !important;
   color: var(--text-color);
-  animation: gradientMove 56s ease infinite alternate;
-  background-size: 180% 180%;
+  animation: cyberpunkGradientMove 26s cubic-bezier(0.67,0.01,0.35,1) infinite alternate;
+  background-size: 222% 188%;
+  letter-spacing: 0.03em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes gradientMove {
+@keyframes cyberpunkGradientMove {
   0% {
-    background-position: 0% 82%;
+    background-position: 10% 55%;
   }
-  50% {
-    background-position: 100% 19%;
+  43% {
+    background-position: 90% 41%;
   }
   100% {
-    background-position: 0% 82%;
+    background-position: 13% 23%;
   }
 }
 
@@ -66,7 +77,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: transparent;
+  background: linear-gradient(
+    120deg,
+    #1e0033 5%, #5500ad 37%, #00fff7 72%, #ff0bf3 100%
+  );
+  box-shadow: 0 0 42px 0 #00fff770 inset, 0 2px 48px #8e00ff28;
+  background-blend-mode: lighten;
+  transition: background 0.33s;
 }
 
 /* ------ Top Navigation Bar ------ */
@@ -81,6 +98,15 @@ body {
   margin-top: var(--navbar-height);
   min-height: calc(100vh - var(--navbar-height));
   width: 100%;
+  background: linear-gradient(135deg, #1b0032 5%, #440066 44%, #07d9ff 83%, #ff0bf3 100%);
+  border-top: 3px solid #ff0bf333;
+  border-bottom: 2px solid #00fff747;
+  box-shadow:
+    0 0 32px #00fff777 inset,
+    0 2px 11px #8e00ff19,
+    0 11px 72px #003cff21;
+  z-index: 2;
+  background-blend-mode: lighten;
 }
 
 /* --- Placeholder for original storybar/sidebar/feed CSS ---
@@ -141,19 +167,25 @@ body {
   justify-content: center;
   padding: 38px 12px 0 12px;
   min-width: 0;
+  background: radial-gradient(ellipse at 20% 20%, #00fff747 43%, transparent 80%),
+              radial-gradient(circle at 90% 40%, #ff0bf333 12%, transparent 55%);
 }
+
 .serene-feed__placeholder {
   width: 100%;
   max-width: 540px;
-  background: rgba(255,255,255,0.07);
+  background: linear-gradient(100deg, #161731dd 80%, #130726f7 98%);
   padding: 38px 0;
   border-radius: 20px;
-  color: var(--text-color);
+  color: #fff7fe;
   text-align: center;
   font-size: 1.3rem;
   font-weight: 600;
-  border: 1.5px dashed #7eb4ff;
+  border: 2.7px solid #00fff7bb;
+  box-shadow: 0 1px 32px #00fff744, 0 0 18px #ff0bf336 inset;
+  text-shadow: 0 2px 12px #00fff733, 0 1px 7px #ff0bf341;
 }
+
 
 /* Sidebar / Profile */
 .serene-sidebar {
@@ -182,12 +214,14 @@ body {
   top: 0; left: 0;
   right: 0; bottom: 0;
   z-index: 300;
-  background: rgba(45,58,102,0.36);
+  background: linear-gradient(115deg, #00fff722 40%, #ff0bf337 100%) rgba(27, 8, 56, 0.76);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   color: #fff;
+  backdrop-filter: blur(8px) saturate(137%);
+  -webkit-backdrop-filter: blur(8px) saturate(137%);
 }
 
 /* ------ Responsive Design ------ */

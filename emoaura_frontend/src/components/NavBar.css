@@ -3,75 +3,96 @@
 .serene-navbar {
   position: fixed;
   top: 0; left: 0;
-  width: 100%;
+  width: 100vw;
   height: var(--navbar-height);
   box-sizing: border-box;
-  padding: 0 36px;
+  padding: 0 44px 0 31px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* Brand: vibrant Instagram gradient with blur effect */
+  /* Cyberpunk neon gradients + dynamic lighting */
   background: linear-gradient(
-    105deg,
-    #f9ce34 5%, #ee2a7b 35%, #6228d7 65%, #5d69ff 86%, #5EE2FF 100%
+    107deg,
+    #0a012c 0%,
+    #00fff7 30%,
+    #8d00ff 56%,
+    #ff0bf3 63%,
+    #003cff 94%
   );
   color: var(--text-color);
-  border-bottom: 1.5px solid var(--border-color);
+  border-bottom: 2.7px solid #00fff7cc;
   z-index: 100;
+  box-shadow:
+    0 6px 32px #00fff744,
+    0 0px 33px #ff0bf363,
+    0 1px 41px #3030ff43 inset;
   transition: background var(--transition-main), box-shadow var(--transition-main);
-  box-shadow: 0 3px 24px #7979ff32, 0 0px 23px #ee2a7b54;
-  backdrop-filter: blur(11px) saturate(120%);
-  -webkit-backdrop-filter: blur(11px) saturate(120%);
+  backdrop-filter: blur(11px) saturate(140%);
+  -webkit-backdrop-filter: blur(11px) saturate(140%);
 }
 
 .serene-navbar__logo {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 23px;
+  cursor: pointer;
+  z-index: 120;
+  transition: filter 0.19s;
+  text-decoration: none;
 }
 
 .serene-navbar__logo-symbol {
-  width: 38px;
-  height: 38px;
-  filter: drop-shadow(0 0 8px #ee2a7ba0) drop-shadow(0 0 12px #5EE2FFbb);
-  background: none;
+  width: 41px;
+  height: 41px;
+  filter: drop-shadow(0 0 13px #00fff780) drop-shadow(0 0 21px #ff0bf355);
+  background: linear-gradient(135deg, #00fff7cc 0%, #8d00ff 100%);
   border-radius: 50%;
-  border: 1.8px solid #f9ce3499;
-  transition: border 0.15s, box-shadow 0.13s;
-  box-shadow: 0 0 0 3.1px #5ee2ff33, 0 0 10px #f9ce3444;
+  border: 2.5px solid #8d00ffaa;
+  transition: border 0.15s, box-shadow 0.13s, filter .18s;
+  box-shadow: 0 0 0 6px #003cff1a, 0 0 48px #00fff742;
 }
 
 .serene-navbar__brand {
-  font-size: 1.68rem;
-  letter-spacing: 2.1px;
+  font-size: 1.82rem;
+  letter-spacing: 3.1px;
   color: #fff;
   font-weight: bold;
-  font-family: 'Inter', 'Arial', sans-serif;
-  text-shadow: 0 2px 12px #ee2a7b54, 0 1px 3px #00dfff35, 0 6px 18px #6228d790;
-  padding-left: 4px;
-  transition: color 0.16s, text-shadow 0.18s;
+  font-family: 'Orbitron','Inter', 'Arial', sans-serif;
+  text-shadow: 0 3px 22px #00fff7bf, 0 2px 8px #ff0bf3af, 0 6px 28px #8d00ff55;
+  padding-left: 9px;
+  transition: color 0.11s, text-shadow 0.15s;
+  text-transform: uppercase;
 }
 
-/* Add drop/glow on hover for the logo area */
+/* Add neon pulse/glow on hover for logo area */
 .serene-navbar__logo:hover .serene-navbar__logo-symbol {
-  box-shadow: 0 0 18px 7px #ee2a7baa, 0 0 25px #5EE2FF66 inset;
-  border: 2.2px solid #5EE2FF99;
+  box-shadow:
+    0 0 22px 13px #00fff799,
+    0 0 52px #ff0bf399 inset;
+  border: 2.6px solid #00fff799;
+  filter: brightness(1.11) saturate(2.1);
 }
+.serene-navbar__logo:hover .serene-navbar__brand {
+  color: #00fff7;
+  text-shadow: 0 2px 21px #ff0bf3bb, 0 1px 21px #003cffcc;
+  transition: color .14s, text-shadow .25s;
+}
+
 .serene-navbar__brand:hover {
-  color: #f9ce34;
-  text-shadow: 0 2px 18px #ee2a7b93, 0 1px 7px #00dfff33;
-  transition: color .19s, text-shadow .21s;
+  color: #8d00ff;
+  text-shadow: 0 2px 18px #00fff7d7, 0 2px 13px #ff0bf373;
+  transition: color .15s, text-shadow .13s;
 }
 
 @media (max-width: 700px) {
   .serene-navbar {
-    padding: 0 12px;
-    font-size: 1.10rem;
+    padding: 0 9px 0 7px;
+    font-size: 1.12rem;
     min-height: 54px;
-    box-shadow: 0 2px 10px #7979ff1a, 0 0px 11px #ee2a7b19;
+    box-shadow: 0 2px 10px #00fff71a, 0 0px 14px #8d00ff11;
   }
   .serene-navbar__logo {
-    font-size: 1.02rem;
+    font-size: 1.00rem;
     gap: 7px;
   }
 }
