@@ -1,45 +1,34 @@
 :root {}
 
-.emoaura-sidebar {
+.serene-sidebar {
   width: var(--sidebar-width);
   min-width: 180px;
   padding: 32px 8px;
-  background: var(--emoaura-secondary);
-  border-left: 1.5px solid var(--border-color);
+  background: rgba(41,43,66,0.82);
+  border-left: 1.3px solid var(--border-color);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: -2px 2px 14px #a83e3e07;
-  transition: background var(--transition-main), box-shadow var(--transition-main);
+  box-shadow: -2px 2px 18px #b491f622;
 }
 
-.emoaura-sidebar__placeholder {
-  background: linear-gradient(135deg, #2e2626 25%, #a83e3e18 90%);
-  color: var(--emoaura-primary);
-  border: 1.7px dashed var(--emoaura-primary);
-  padding: 21px 7px;
-  border-radius: 13px;
-  font-size: 1.06rem;
+.serene-sidebar__placeholder {
+  color: #7eb4ff;
+  border: 1.5px dashed #5d69ffac;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 1.05rem;
   font-weight: 500;
-  width: 98%;
-  transition: background 0.17s, color 0.13s;
-}
-
-.emoaura-sidebar__placeholder:hover {
-  background: #a83e3e23;
-  color: #fff;
-  box-shadow: 0 1px 10px #a83e3e44;
-  cursor: pointer;
 }
 
 @media (max-width: 900px) {
-  .emoaura-sidebar {
+  .serene-sidebar {
     display: none;
   }
 }
 
 @media (max-width: 600px) {
-  .emoaura-sidebar__placeholder {
+  .serene-sidebar__placeholder {
     font-size: 0.96rem;
     padding: 14px 4px;
   }
