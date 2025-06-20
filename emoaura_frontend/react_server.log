@@ -13,8 +13,8 @@ asset 9539eeffc410c41bb9b5.svg 1.16 KiB [emitted] [immutable] [from: src/assets/
 runtime modules 28.7 KiB 15 modules
 javascript modules 1.61 MiB
   modules by path ./node_modules/ 1.54 MiB 34 modules
-  modules by path ./src/ 53.1 KiB
-    modules by path ./src/components/ 35.1 KiB 15 modules
+  modules by path ./src/ 53.7 KiB
+    modules by path ./src/components/ 35.7 KiB 15 modules
     modules by path ./src/*.css 12.8 KiB 4 modules
     modules by path ./src/*.js 5.17 KiB 3 modules
   modules by path ./.ve/ 15.1 KiB
@@ -22,14 +22,128 @@ javascript modules 1.61 MiB
     modules by path ./.ve/*.css 2.93 KiB 2 modules
     ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
 ./src/assets/logo.svg 1.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
-webpack 5.99.9 compiled successfully in 1417 ms
+webpack 5.99.9 compiled successfully in 1393 ms
 assets by status 3.13 KiB [cached] 2 assets
-assets by status 1.82 MiB [emitted]
-  asset bundle.js 1.81 MiB [emitted] (name: main)
-  asset main.8464fd7e12b60eb9c0ef.hot-update.js 6.39 KiB [emitted] [immutable] [hmr] (name: main)
-  asset main.8464fd7e12b60eb9c0ef.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.82 MiB (1.16 KiB) = bundle.js 1.81 MiB main.8464fd7e12b60eb9c0ef.hot-update.js 6.39 KiB 1 auxiliary asset
-cached modules 1.6 MiB (javascript) 1.16 KiB (asset) [cached] 61 modules
+assets by status 1.81 MiB [emitted]
+  asset bundle.js 1.8 MiB [emitted] (name: main)
+  asset main.b6497025f921a48e5fd8.hot-update.js 6.11 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.b6497025f921a48e5fd8.hot-update.json 121 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.81 MiB (1.16 KiB) = bundle.js 1.8 MiB main.b6497025f921a48e5fd8.hot-update.js 6.11 KiB 1 auxiliary asset
+cached modules 1.6 MiB (javascript) 1.16 KiB (asset) [cached] 58 modules
 runtime modules 28.7 KiB 15 modules
-./src/components/Feed.js 3.87 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 101 ms
+javascript modules 1.56 KiB
+  ./src/routes.js 1.52 KiB [code generated]
+  ./src/components/Feed.js 39 bytes [built] [code generated] [1 error]
+
+ERROR in ./src/components/Feed.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/src/components/Feed.js: Identifier 'React' has already been declared. (58:7)
+
+  56 | });
+  57 |
+> 58 | import React, { useState } from "react";
+     |        ^
+  59 | import "./Feed.css";
+  60 |
+  61 | // Util functions for random content
+    at constructor (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:363:19)
+    at JSXParserMixin.raise (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:6609:19)
+    at ScopeHandler.checkRedeclarationInScope (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:1626:19)
+    at ScopeHandler.declareName (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:1592:12)
+    at JSXParserMixin.declareNameFromIdentifier (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:7538:16)
+    at JSXParserMixin.checkIdentifier (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:7534:12)
+    at JSXParserMixin.checkLVal (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:7475:12)
+    at JSXParserMixin.finishImportSpecifier (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14184:10)
+    at JSXParserMixin.parseImportSpecifierLocal (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14181:31)
+    at JSXParserMixin.maybeParseDefaultImportSpecifier (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14288:12)
+    at JSXParserMixin.parseImportSpecifiersAndAfter (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14157:29)
+    at JSXParserMixin.parseImport (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14153:17)
+    at JSXParserMixin.parseStatementContent (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12795:27)
+    at JSXParserMixin.parseStatementLike (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12685:17)
+    at JSXParserMixin.parseModuleItem (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12662:17)
+    at JSXParserMixin.parseBlockOrModuleBlockBody (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:13235:36)
+    at JSXParserMixin.parseBlockBody (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:13228:10)
+    at JSXParserMixin.parseProgram (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12541:10)
+    at JSXParserMixin.parseTopLevel (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12531:25)
+    at JSXParserMixin.parse (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14410:10)
+    at parse (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14444:38)
+    at parser (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/gensync/index.js:261:32)
+    at /home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/gensync/index.js:223:11)
+ @ ./src/routes.js 10:0-37 16:27-31
+ @ ./src/App.js 10:0-88 39:43-51 45:43-54 51:43-54 57:43-52 63:43-56
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 87 ms
+assets by status 1.8 MiB [cached] 3 assets
+cached modules 1.6 MiB (javascript) 1.16 KiB (asset) 28.7 KiB (runtime) [cached] 74 modules
+./src/components/Feed.js 39 bytes [built] [1 error]
+
+ERROR in ./src/components/Feed.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/src/components/Feed.js: Identifier 'React' has already been declared. (58:7)
+
+  56 | });
+  57 |
+> 58 | import React, { useState } from "react";
+     |        ^
+  59 | import "./Feed.css";
+  60 |
+  61 | // Util functions for random content
+    at constructor (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:363:19)
+    at JSXParserMixin.raise (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:6609:19)
+    at ScopeHandler.checkRedeclarationInScope (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:1626:19)
+    at ScopeHandler.declareName (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:1592:12)
+    at JSXParserMixin.declareNameFromIdentifier (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:7538:16)
+    at JSXParserMixin.checkIdentifier (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:7534:12)
+    at JSXParserMixin.checkLVal (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:7475:12)
+    at JSXParserMixin.finishImportSpecifier (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14184:10)
+    at JSXParserMixin.parseImportSpecifierLocal (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14181:31)
+    at JSXParserMixin.maybeParseDefaultImportSpecifier (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14288:12)
+    at JSXParserMixin.parseImportSpecifiersAndAfter (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14157:29)
+    at JSXParserMixin.parseImport (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14153:17)
+    at JSXParserMixin.parseStatementContent (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12795:27)
+    at JSXParserMixin.parseStatementLike (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12685:17)
+    at JSXParserMixin.parseModuleItem (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12662:17)
+    at JSXParserMixin.parseBlockOrModuleBlockBody (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:13235:36)
+    at JSXParserMixin.parseBlockBody (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:13228:10)
+    at JSXParserMixin.parseProgram (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12541:10)
+    at JSXParserMixin.parseTopLevel (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:12531:25)
+    at JSXParserMixin.parse (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14410:10)
+    at parse (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/parser/lib/index.js:14444:38)
+    at parser (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/gensync/index.js:261:32)
+    at /home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/home/kavia/workspace/code-generation/emoaura-65015-171ed3b0/emoaura_frontend/node_modules/gensync/index.js:223:11)
+ @ ./src/routes.js 10:0-37 16:27-31
+ @ ./src/App.js 10:0-88 39:43-51 45:43-54 51:43-54 57:43-52 63:43-56
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 37 ms
+assets by status 3.13 KiB [cached] 2 assets
+assets by status 1.85 MiB [emitted]
+  asset bundle.js 1.82 MiB [emitted] (name: main)
+  asset main.41ffc886c1cdcb6c6083.hot-update.js 25.3 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.41ffc886c1cdcb6c6083.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.85 MiB (1.16 KiB) = bundle.js 1.82 MiB main.41ffc886c1cdcb6c6083.hot-update.js 25.3 KiB 1 auxiliary asset
+cached modules 1.6 MiB (javascript) 1.16 KiB (asset) [cached] 60 modules
+runtime modules 28.7 KiB 15 modules
+javascript modules 10.8 KiB
+  ./src/routes.js 1.52 KiB [code generated]
+  ./src/components/Feed.js 9.25 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 100 ms
