@@ -2,6 +2,7 @@ import React from "react";
 import Feed from "./components/Feed";
 import Explore from "./components/Explore";
 import MessagesDMPage from "./components/MessagesDMPage";
+import ProfilePageComponent from "./components/ProfilePage";
 
 /**
  * All primary route placeholders for Sérene.
@@ -24,8 +25,8 @@ export function ExplorePage() {
 
 // PUBLIC_INTERFACE
 export function ProfilePage() {
-  /** Placeholder for Profile route. */
-  return <div className="serene-feed__placeholder">Sérene Profile Area</div>;
+  /** Profile route: Profile setup and info, Instagram-inspired card design. */
+  return <ProfilePageComponent />;
 }
 
 // PUBLIC_INTERFACE
