@@ -163,16 +163,44 @@ export default function Explore() {
   );
 }
 
-// PUBLIC_INTERFACE
+/**
+ * Sticky filter/search bar always visible atop Explore grid.
+ */
 function StickyFilterBar({ search, setSearch }) {
-  /**
-   * Sticky filter/search bar always visible atop Explore grid.
-   */
+  // For future extensibility, support for filter type and sort order (not functional yet)
+  const [type, setType] = useState("");
+  const [sort, setSort] = useState("trending");
+
+  // Type filter options (for demo)
+  const typeOptions = [
+    { value: "", label: "All Types" },
+    { value: "images", label: "Images" },
+    { value: "text", label: "Text" },
+    { value: "videos", label: "Videos" }, // Extensible (non-functional now)
+  ];
+
+  // Sort options (for demo/future expansion)
+  const sortOptions = [
+    { value: "trending", label: "Trending" },
+    { value: "new", label: "Newest" },
+    { value: "top", label: "Top" },
+  ];
+
   return (
-    <div className="explore-filter-bar">
+    <form
+      className="explore-filter-bar"
+      role="search"
+      aria-label="Search and filter Explore"
+      tabIndex={-1}
+      onSubmit={e => e.preventDefault()}
+      style={{gap: 18}}
+    >
+      <label htmlFor="explore-search-input" className="sr-only">
+        Search Explore
+      </label>
       <input
         id="explore-search-input"
-        type="text"
+        type="search"
         className="explore-search-input"
         placeholder="Search Explore... (Press / to focus)"
         value={search}
@@ -181,21 +209,58 @@ function StickyFilterBar({ search, setSearch }) {
         autoCapitalize="off"
         spellCheck="false"
         aria-label="Search Explore"
+        name="explore-search"
+        style={{ minWidth: 0, flex: "0 1 250px" }}
       />
-      <div style={{ flex: 1 }} />
-      <button className="explore-filter-btn" type="button" tabIndex={0} aria-label="Filter">
+
+      <label htmlFor="explore-type-filter" className="sr-only">
+        Filter by type
+      </label>
+      <select
+        id="explore-type-filter"
+        className="explore-type-select"
+        name="type"
+        aria-label="Filter by type"
+        value={type}
+        onChange={e => setType(e.target.value)}
+        style={{minWidth: 90, fontSize: "1.01rem"}}
+      >
+        {typeOptions.map(opt =>
+          <option key={opt.value} value={opt.value}>{opt.label}</option>
+        )}
+      </select>
+
+      <label htmlFor="explore-sort" className="sr-only">
+        Sort Explore
+      </label>
+      <select
+        id="explore-sort"
+        className="explore-sort-select"
+        name="sort"
+        aria-label="Sort Explore grid"
+        value={sort}
+        onChange={e => setSort(e.target.value)}
+        style={{minWidth: 90, fontSize: "1.01rem"}}
+      >
+        {sortOptions.map(opt =>
+          <option key={opt.value} value={opt.value}>{opt.label}</option>
+        )}
+      </select>
+
+      {/* In future: filters, etc. Here as demonstration of extensibility */}
+      <button
+        className="explore-filter-btn"
+        type="button"
+        tabIndex={0}
+        aria-label="More Filters"
+        style={{marginLeft: 5}}
+      >
         <span role="img" aria-label="Filter">
           🧲
         </span>
-        Filters
+        More Filters
       </button>
-      <button className="explore-filter-btn" type="button" tabIndex={0} aria-label="Trending">
-        <span role="img" aria-label="Trending">
-          🔥
-        </span>
-        Trending
-      </button>
-    </div>
+    </form>
   );
 }
 

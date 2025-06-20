@@ -26,6 +26,47 @@
   border: 1.5px solid #0ffccf55;
   overflow-x: auto;
 }
+
+.explore-type-select,
+.explore-sort-select {
+  background: #0c0c23;
+  border: 2.2px solid #8d00ffbb;
+  color: #fff;
+  border-radius: 11px;
+  font-size: 1.05rem;
+  font-family: 'Times New Roman', Times, serif !important;
+  margin-right: 9px;
+  padding: 8.5px 15px 7.5px 12px;
+  outline: none;
+  box-shadow: 0 0 8px #0ffccf65;
+  transition: border .17s, box-shadow .2s, background .2s;
+  min-width: 80px;
+  appearance: none;
+}
+
+.explore-type-select:focus,
+.explore-sort-select:focus {
+  border: 2.4px solid #ff39b5;
+  box-shadow: 0 0 18px #ff39b5bb, 0 0 8px #0ffccfaa;
+  background: #211959;
+}
+
+.explore-type-select option,
+.explore-sort-select option {
+  background: #181240;
+  color: #fff;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px,1px,1px,1px) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
 .explore-search-input {
   background: #0c0c23;
   outline: none;
