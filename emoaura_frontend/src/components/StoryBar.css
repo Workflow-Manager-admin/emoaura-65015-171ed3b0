@@ -44,7 +44,7 @@
   border: none;
   color: #ff39b5;
   font-size: 1.16rem;
-  font-family: 'Inter', 'Arial', monospace;
+  font-family: 'Times New Roman', Times, serif !important;
   font-weight: 600;
   padding: 17px 32px 15px 34px;
   border-radius: 22px 0 0 22px;

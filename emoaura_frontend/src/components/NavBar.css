@@ -61,7 +61,7 @@
   letter-spacing: 2.4px;
   color: #fff;
   font-weight: bold;
-  font-family: 'Inter','Arial', sans-serif;
+  font-family: 'Times New Roman', Times, serif !important;
   text-shadow: 0 0 19px #0ffccf, 0 0 6px #8d00ffd7;
   padding-left: 13px;
   transition: color 0.16s, text-shadow 0.19s;

@@ -31,6 +31,7 @@
   border-radius: 14px;
   font-size: 1.17rem;
   font-weight: 700;
+  font-family: 'Times New Roman', Times, serif !important;
   background: rgba(20, 7, 51, 0.67);
   box-shadow: 0 0 12px #0ffccf55, 0 0 9px #8d00ff33;
   letter-spacing: 1.2px;
