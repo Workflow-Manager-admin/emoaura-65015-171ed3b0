@@ -22,4 +22,19 @@ javascript modules 1.71 MiB
     modules by path ./.ve/*.css 2.93 KiB 2 modules
     ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
 ./src/assets/logo.svg 1.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
-webpack 5.99.9 compiled successfully in 1570 ms
+webpack 5.99.9 compiled successfully in 1631 ms
+assets by status 3.13 KiB [cached] 2 assets
+assets by status 2.04 MiB [emitted]
+  asset bundle.js 2.01 MiB [emitted] (name: main)
+  asset main.afd1053e2ca75a4c7c56.hot-update.js 36.4 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.afd1053e2ca75a4c7c56.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 2.04 MiB (1.16 KiB) = bundle.js 2.01 MiB main.afd1053e2ca75a4c7c56.hot-update.js 36.4 KiB 1 auxiliary asset
+cached modules 1.7 MiB (javascript) 1.16 KiB (asset) [cached] 70 modules
+runtime modules 28.7 KiB 15 modules
+javascript modules 23.1 KiB
+  modules by path ./src/components/*.css 9.84 KiB
+    ./src/components/FeedPage.css 2.26 KiB [built] [code generated]
+    ./node_modules/css-loader/dist/cjs.js!./src/components/FeedPage.css 7.57 KiB [built] [code generated]
+  ./src/routes.js 1.7 KiB [built] [code generated]
+  ./src/components/FeedPage.js 11.6 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 193 ms

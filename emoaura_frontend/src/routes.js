@@ -1,4 +1,5 @@
 import React from "react";
+import FeedPageComponent from "./components/FeedPage";
 import Feed from "./components/Feed";
 import Explore from "./components/Explore";
 import MessagesDMPage from "./components/MessagesDMPage";
@@ -9,10 +10,13 @@ import ProfilePageComponent from "./components/ProfilePage";
  * These placeholder components show the new Sérene name and class.
  */
 
-// PUBLIC_INTERFACE
+/**
+ * PUBLIC_INTERFACE
+ * FeedPage: Render new FeedPage only (overrides old demo Feed).
+ */
 export function FeedPage() {
-  /** Scrollable Feed route for Sérene app: cyberpunk neon post cards. */
-  return <Feed />;
+  /** Main Feed route for EmoAura app (modern, pinned stories, posts, interactions). */
+  return <FeedPageComponent />;
 }
 
 // PUBLIC_INTERFACE
