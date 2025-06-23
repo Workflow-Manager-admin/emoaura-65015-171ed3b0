@@ -43,3 +43,23 @@ cached modules 1.71 MiB (javascript) 1.16 KiB (asset) [cached] 73 modules
 runtime modules 28.7 KiB 15 modules
 ./src/components/MessagesDMPage.js 16.6 KiB [built] [code generated]
 webpack 5.99.9 compiled successfully in 97 ms
+assets by status 3.13 KiB [cached] 2 assets
+assets by status 2.03 MiB [emitted]
+  asset bundle.js 2.01 MiB [emitted] (name: main)
+  asset main.31bc46560d1e19edf6cb.hot-update.js 22.3 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.31bc46560d1e19edf6cb.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 2.03 MiB (1.16 KiB) = bundle.js 2.01 MiB main.31bc46560d1e19edf6cb.hot-update.js 22.3 KiB 1 auxiliary asset
+cached modules 1.71 MiB (javascript) 1.16 KiB (asset) [cached] 73 modules
+runtime modules 28.7 KiB 15 modules
+./src/components/MessagesDMPage.js 16.7 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 200 ms
+assets by status 3.13 KiB [cached] 2 assets
+assets by status 2.03 MiB [emitted]
+  asset bundle.js 2.01 MiB [emitted] (name: main)
+  asset main.bd1dcda47fc309812586.hot-update.js 23.4 KiB [emitted] [immutable] [hmr] (name: main)
+  asset main.bd1dcda47fc309812586.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 2.03 MiB (1.16 KiB) = bundle.js 2.01 MiB main.bd1dcda47fc309812586.hot-update.js 23.4 KiB 1 auxiliary asset
+cached modules 1.71 MiB (javascript) 1.16 KiB (asset) [cached] 73 modules
+runtime modules 28.7 KiB 15 modules
+./src/components/MessagesDMPage.js 17.8 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 107 ms

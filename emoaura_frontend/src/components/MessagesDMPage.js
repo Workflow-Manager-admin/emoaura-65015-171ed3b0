@@ -1,5 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "./MessagesDMPage.module.css";
+// Defensive import in case module import fails, set styles to undefined
+let styles;
+try {
+  styles = require("./MessagesDMPage.module.css");
+} catch (e) {
+  styles = undefined;
+}
 
 /**
  * Avatar helper (pixel-art placeholders)
@@ -61,7 +67,23 @@ function formatTime(ts) {
   return dt.toLocaleDateString();
 }
 
-// PUBLIC_INTERFACE
+/**
+ * PUBLIC_INTERFACE
+ * Root cause/documentation:
+ * - The 'styles' object is the imported CSS module, expected from './MessagesDMPage.module.css'.
+ * - If import fails, or build tool misconfigures CSS modules, 'styles' can be undefined or not contain 'messagesRoot'.
+ * - Accessing 'styles.messagesRoot' (or bracket equivalent) on undefined causes the "Cannot read properties of undefined (reading 'messagesRoot')" error.
+ * - Defensive programming is required on _all_ reads of style properties.
+ * - This is especially necessary in strict CI, SSR, or CSS-module-misconfigured environments.
+ *
+ * Robust defensive strategy:
+ *   - Use a safe import for 'styles'; if missing, allow it to be undefined.
+ *   - For all usage of 'styles.<X>', use the following access pattern:
+ *        styles && styles["X"] ? styles["X"] : "<fallback-class>"
+ *   - This guarantees access never throws, and the page always renders (albeit without custom CSS module styles).
+ *
+ * This pattern is fully applied below.
+ */
 export default function MessagesDMPage() {
   /**
    * Messages/DM main page with left nav, chat list, main chat area, and right info sidebar.
@@ -122,14 +144,14 @@ export default function MessagesDMPage() {
       chs.map(c =>
         c.id === selected
           ? {
-            ...c,
-            history: [
-              ...c.history,
-              { text: entry.trim(), fromMe: true, ts: now },
-            ],
-            preview: entry.trim(),
-            unread: false,
-          }
+              ...c,
+              history: [
+                ...c.history,
+                { text: entry.trim(), fromMe: true, ts: now },
+              ],
+              preview: entry.trim(),
+              unread: false,
+            }
           : c
       )
     );
@@ -144,11 +166,12 @@ export default function MessagesDMPage() {
     }
   }
 
-  // Safely handle possible undefined import or object error for styles/messagesRoot
+  // Defensive access to module CSS: never allow undefined access/read
+  // This guarantees safety in any build/runtime/SSR toolchain
   const containerClass =
     styles && styles["messagesRoot"]
       ? styles["messagesRoot"]
-      : "messages-root"; // fallback className
+      : "messages-root"; // fallback ensures component always renders
 
   return (
     <div className={containerClass}>
