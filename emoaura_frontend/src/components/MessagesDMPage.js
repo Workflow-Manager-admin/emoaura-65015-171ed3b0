@@ -144,37 +144,43 @@ export default function MessagesDMPage() {
     }
   }
 
+  // Safely handle possible undefined import or object error for styles/messagesRoot
+  const containerClass =
+    styles && styles["messagesRoot"]
+      ? styles["messagesRoot"]
+      : "messages-root"; // fallback className
+
   return (
-    <div className={styles["messagesRoot"]}>
+    <div className={containerClass}>
       {/* Left Nav Bar */}
-      <aside className={styles["messagesNav"]}>
-        <div className={styles["messagesNavLogo"]}>
+      <aside className={styles && styles["messagesNav"] ? styles["messagesNav"] : "messages-nav"}>
+        <div className={styles && styles["messagesNavLogo"] ? styles["messagesNavLogo"] : "messages-nav-logo"}>
           <span role="img" aria-label="logo">💬</span>
         </div>
-        <nav className={styles["messagesNavList"]}>
-          <button className={styles["navItemActive"]} aria-label="Messages">
+        <nav className={styles && styles["messagesNavList"] ? styles["messagesNavList"] : "messages-nav-list"}>
+          <button className={styles && styles["navItemActive"] ? styles["navItemActive"] : "messages-nav-item active"} aria-label="Messages">
             <span role="img" aria-label="">✉️</span>
           </button>
-          <button className={styles["navItem"]} aria-label="Requests">
+          <button className={styles && styles["navItem"] ? styles["navItem"] : "messages-nav-item"} aria-label="Requests">
             <span role="img" aria-label="">📥</span>
           </button>
-          <button className={styles["navItem"]} aria-label="Archive">
+          <button className={styles && styles["navItem"] ? styles["navItem"] : "messages-nav-item"} aria-label="Archive">
             <span role="img" aria-label="">🗂️</span>
           </button>
         </nav>
       </aside>
 
       {/* Chat List Sidebar */}
-      <aside className={styles["messagesSidebar"]} aria-label="Chat list">
-        <div className={styles["sidebarTitle"]}>Chats</div>
-        <div className={styles["chatList"]}>
+      <aside className={styles && styles["messagesSidebar"] ? styles["messagesSidebar"] : "messages-sidebar"} aria-label="Chat list">
+        <div className={styles && styles["sidebarTitle"] ? styles["sidebarTitle"] : "messages-sidebar-title"}>Chats</div>
+        <div className={styles && styles["chatList"] ? styles["chatList"] : "messages-chat-list"}>
           {chats.map(c => (
             <button
               key={c.id}
               className={
-                styles["chatListItem"] +
-                (c.id === selected ? ` ${styles["selected"]}` : "") +
-                (c.unread ? ` ${styles["unread"]}` : "")
+                (styles && styles["chatListItem"] ? styles["chatListItem"] : "messages-chat-list-item") +
+                (c.id === selected ? (styles && styles["selected"] ? ` ${styles["selected"]}` : " selected") : "") +
+                (c.unread ? (styles && styles["unread"] ? ` ${styles["unread"]}` : " unread") : "")
               }
               onClick={() => setSelected(c.id)}
               aria-current={c.id === selected ? "page" : undefined}
@@ -183,66 +189,74 @@ export default function MessagesDMPage() {
               <img
                 src={c.avatar}
                 alt={c.username + " avatar"}
-                className={styles["chatAvatar"]}
+                className={styles && styles["chatAvatar"] ? styles["chatAvatar"] : "messages-chat-avatar"}
                 loading="lazy"
               />
-              <div className={styles["chatMain"]}>
-                <div className={styles["chatUsername"]}>{c.username}</div>
-                <div className={styles["chatPreview"]}>{c.preview}</div>
+              <div className={styles && styles["chatMain"] ? styles["chatMain"] : "messages-chat-main"}>
+                <div className={styles && styles["chatUsername"] ? styles["chatUsername"] : "messages-chat-username"}>{c.username}</div>
+                <div className={styles && styles["chatPreview"] ? styles["chatPreview"] : "messages-chat-preview"}>{c.preview}</div>
               </div>
               {c.unread &&
-                <div className={styles["unreadDot"]} aria-label="unread" />}
+                <div className={styles && styles["unreadDot"] ? styles["unreadDot"] : "messages-unread-dot"} aria-label="unread" />}
             </button>
           ))}
         </div>
       </aside>
 
       {/* Main Chat Panel */}
-      <main className={styles["messagesMain"]}>
-        <header className={styles["mainHeader"]}>
+      <main className={styles && styles["messagesMain"] ? styles["messagesMain"] : "messages-main"}>
+        <header className={styles && styles["mainHeader"] ? styles["mainHeader"] : "messages-main-header"}>
           <img
             src={chat.avatar}
             alt={chat.username + " avatar"}
-            className={styles["mainAvatar"]}
+            className={styles && styles["mainAvatar"] ? styles["mainAvatar"] : "messages-main-avatar"}
           />
-          <span className={styles["mainUsername"]}>{chat.username}</span>
+          <span className={styles && styles["mainUsername"] ? styles["mainUsername"] : "messages-main-username"}>{chat.username}</span>
         </header>
-        <section className={styles["mainHistory"]} aria-label={`Chat with ${chat.username}`}>
+        <section className={styles && styles["mainHistory"] ? styles["mainHistory"] : "messages-main-history"} aria-label={`Chat with ${chat.username}`}>
           {chat.history.map((msg, idx) => (
             <div
               key={msg.ts + "-" + idx + (msg.fromMe ? "-me" : "")}
               className={
-                styles["bubbleRow"] +
-                " " + (msg.fromMe ? styles["me"] : styles["them"])
+                (styles && styles["bubbleRow"] ? styles["bubbleRow"] : "messages-bubble-row") +
+                " " + (msg.fromMe
+                  ? (styles && styles["me"] ? styles["me"] : "me")
+                  : (styles && styles["them"] ? styles["them"] : "them"))
               }
             >
               <div
                 className={
-                  styles["bubble"] + " " + (msg.fromMe ? styles["right"] : styles["left"])
+                  (styles && styles["bubble"] ? styles["bubble"] : "messages-bubble") +
+                  " " + (msg.fromMe
+                    ? (styles && styles["right"] ? styles["right"] : "right")
+                    : (styles && styles["left"] ? styles["left"] : "left"))
                 }
               >
-                <span className={styles["bubbleText"]}>{msg.text}</span>
-                <span className={styles["bubbleTs"]}>{formatTime(msg.ts)}</span>
+                <span className={styles && styles["bubbleText"] ? styles["bubbleText"] : "messages-bubble-text"}>{msg.text}</span>
+                <span className={styles && styles["bubbleTs"] ? styles["bubbleTs"] : "messages-bubble-ts"}>{formatTime(msg.ts)}</span>
               </div>
             </div>
           ))}
           {isTyping &&
-            <div className={styles["bubbleRow"] + " " + styles["them"]}>
-              <div className={`${styles["bubble"]} ${styles["left"]} ${styles["typingBubble"]}`}>
+            <div className={
+              (styles && styles["bubbleRow"] ? styles["bubbleRow"] : "messages-bubble-row") +
+              " " + (styles && styles["them"] ? styles["them"] : "them")
+            }>
+              <div className={`${styles && styles["bubble"] ? styles["bubble"] : "messages-bubble"} ${styles && styles["left"] ? styles["left"] : "left"} ${styles && styles["typingBubble"] ? styles["typingBubble"] : ""}`}>
                 <TypingIndicator />
               </div>
             </div>}
           <div ref={chatEndRef} />
         </section>
         <form
-          className={styles["inputBox"]}
+          className={styles && styles["inputBox"] ? styles["inputBox"] : "messages-main-inputbox"}
           onSubmit={e => { e.preventDefault(); handleSend(); }}
         >
           <textarea
             value={entry}
             onChange={e => setEntry(e.target.value)}
             onKeyDown={handleInputKey}
-            className={styles["input"]}
+            className={styles && styles["input"] ? styles["input"] : "messages-input"}
             placeholder="Type a message…"
             maxLength={400}
             rows={1}
@@ -251,7 +265,7 @@ export default function MessagesDMPage() {
           />
           <button
             type="submit"
-            className={styles["sendBtn"]}
+            className={styles && styles["sendBtn"] ? styles["sendBtn"] : "messages-send-btn"}
             disabled={!entry.trim()}
             aria-label="Send Message"
           >
@@ -259,15 +273,15 @@ export default function MessagesDMPage() {
           </button>
         </form>
         {justSent &&
-          <div className={styles["deliveredStatus"]}>Delivered</div>
+          <div className={styles && styles["deliveredStatus"] ? styles["deliveredStatus"] : "delivered-status"}>Delivered</div>
         }
       </main>
 
       {/* Right Sidebar: Placeholder for user info/media */}
-      <aside className={styles["messagesRight"]}>
-        <div className={styles["rightPlaceholder"]}>
+      <aside className={styles && styles["messagesRight"] ? styles["messagesRight"] : "messages-right"}>
+        <div className={styles && styles["rightPlaceholder"] ? styles["rightPlaceholder"] : "messages-right-placeholder"}>
           <span role="img" aria-label="Vibes">🌸</span>
-          <div className={styles["rightHint"]}>User Info/Media</div>
+          <div className={styles && styles["rightHint"] ? styles["rightHint"] : "messages-right-hint"}>User Info/Media</div>
         </div>
       </aside>
     </div>
