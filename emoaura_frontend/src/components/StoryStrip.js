@@ -27,7 +27,9 @@ function StoryStrip() {
               alt={`${s.username} story avatar`}
               className="serene-story-strip__avatar"
               loading="lazy"
-            />
+            style={{
+                color: '#f1fafb'
+            }} />
           </span>
           <div className="serene-story-strip__user">{s.username}</div>
         </div>
